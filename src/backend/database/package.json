@@ -1,0 +1,32 @@
+{
+  "name": "adultingoverflow",
+  "version": "1.0.0",
+  "description": "stack overflow for adult responsibilities",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CVKesho82/FullStack925.git"
+  },
+  "keywords": [
+    "adulting"
+  ],
+  "author": "Scott Henderson, Carmen Kesho, Tim Johns",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CVKesho82/FullStack925/issues"
+  },
+  "homepage": "https://github.com/CVKesho82/FullStack925#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "express": "^4.17.1",
+    "pg": "^8.7.1",
+    "sequelize": "^6.6.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13",
+    "sequelize-cli": "^6.2.0"
+  }
+}
