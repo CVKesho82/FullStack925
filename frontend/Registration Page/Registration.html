@@ -26,16 +26,16 @@
             <!--Registration Form -->
             <div class="">
                 
-                <form>
+                <form method="POST" action="" onsubmit="return validatePassword(event)"> 
                     <div class="input_box"> <span><i aria-hidden="true" class="glyphicon glyphicon-envelope"></i></span>
                         <input type="email"  name="email" placeholder="Email" required />
                     </div>
                     <div class="input_box"> <span><i aria-hidden="true" class="glyphicon glyphicon-lock"></i></span>
-                        <input type="password"  name="password" placeholder="Password" required />
+                        <input type="password" minlength="8" id="password" name="password" placeholder="Password" required />
 
                     </div>
                     <div class="input_box"> <span><i aria-hidden="true" class="glyphicon glyphicon-lock"></i></span>
-                        <input type="password" name="passwordConfirm" placeholder="Re-Enter Password" required />
+                        <input type="password" minlength="8" id="passwordConfirm" name="passwordConfirm" placeholder="Re-Enter Password" required />
                     </div>
                     <div class="row clearfix">
                         <div class="col_half">
@@ -51,7 +51,7 @@
                     </div>
                     <!--Gender Select-->
                     <div class="input_box radio">
-                        <input type="radio" name="radiogroup1" id="rd1">
+                        <input type="radio" required name="radiogroup1" id="rd1">
                         <label for="rd1">Male</label>
                         <input type="radio" name="radiogroup1" id="rd2">
                         <label for="rd2">Female</label>
@@ -60,15 +60,15 @@
                     </div>
                     <!--Adulting Level Select-->
                     <div class="input_box select">
-                        <select>
-                            <option>Select Adulting Level</option>
-                            <option>Adult</option>
-                            <option>Almost an Adult</option>
+                        <select required>
+                            <option value="">Select Adulting Level</option>
+                            <option value="Adult">Adult</option>
+                            <option value="Almost">Almost an Adult</option>
                         </select>
                         <div class="select_arrow"></div>
                     </div>
                     <div class="input_box checkbox">
-                        <input type="checkbox" id="cb1">
+                        <input type="checkbox" required id="cb1">
                         <label for="cb1">I agree with terms and conditions</label>
                     </div>
                 <!--Register Select button-->
@@ -78,4 +78,5 @@
         </div>
     </div>
 </div>
+<script src="scripts/validation.js"></script>
 </body>
