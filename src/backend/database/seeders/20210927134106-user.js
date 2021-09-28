@@ -3,12 +3,13 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.bulkInsert('Users', [{
-        firstName: 'Annie',
-        lastName: 'Easley',
-        email: 'ajeasley@nasa.gov',
-        createdAt: new Date(),
-        updatedAt: new Date(),
-        hash: "$2b$10$H3.Dnu6kScUl2QdxjKtX2OKIVq2zY8F2a7GPL1Z2cCHZAbbNNtcji"
+      firstName: 'Scott',
+      lastName: 'Henderson',
+      email: 'scott.mc.henderson@gmail.com',
+      country: 'USA',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      hash: "$2b$10$ihhTXV0ELAaPZgRuK0gZFenyXN03V7uYzuoSvPmLOFvOMBPQQ9Tri"
     }], {});
   },
 

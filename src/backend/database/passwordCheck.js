@@ -14,7 +14,7 @@ bcrypt.hash(adminPassword, saltRounds, function(err, hash) {
     console.log(db);
 
     // Check pass from database
-    bcrypt.compare(myPlaintextPassword, db[0], function(err, result) {
+    bcrypt.compare(adminPassword, db[0], function(err, result) {
         console.log(result);
     });
 
