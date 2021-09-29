@@ -1,3 +1,5 @@
+// General app program
+
 // https://sequelize.org/master/manual/model-querying-basics.html#simple-update-queries
 // Use Sequilize to create a CRUD app for a database
 
@@ -8,7 +10,7 @@ const express = require('express');
 const app = express();
 const server = http.createServer(app);
 app.use(express.json());
-const models = require('./models')
+var router = express.Router();
 
 // Requirements for Sequelize
 const { Sequelize, Model, DataTypes } = require('sequelize');
@@ -18,6 +20,21 @@ const { User } = require('./models');
 const sequelize = new Sequelize('sqlite::memory:', {
   define: { freezeTableName: true}
 });
+
+// Create router for login page
+var login = require('./login.js');
+app.use('/login', login);
+
+// TODO: Make route sub-folder for multiple tables
+// Routes for other data information, locates the folders
+// var indexRouter = require('./routes/index.js');
+// var loginRouter = require('./login.js');
+// const postsRouter = require('./routes/posts.js');
+
+// Shorthand for routes, tells what route VS Code to use
+// app.use('/', indexRouter);
+// app.use('/api/v1/login', loginRouter);
+// app.get(loginRouter, '/checkpassword')
 
 // Hello World
 app.get('/', (req, res) => {
@@ -93,9 +110,11 @@ app.delete('/users/:id', async (req, res) => {
   }
 });
 
+
+
 server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
-  });
+});
 
 // TODO: Update code from clsas to match our project
 // TODO: checkLogin(login, password) {}
