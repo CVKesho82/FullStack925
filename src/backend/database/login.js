@@ -25,7 +25,7 @@ router.post('/verify', async (req, res) => {
   const bodyEmail = req.body.email;
   await User.findOne({where: { email: bodyEmail } }).then (foundUser => {
     // If user exists and hash matches database
-    console.log('DEBUG',foundUser.id, foundUser.email, foundUser.hash);
+    // console.log('DEBUG',foundUser.id, foundUser.email, foundUser.hash);
     if (foundUser !== null) { // If user exist in the database
       if (foundUser.hash === req.body.password) { // If password matches the database
         console.log('reached conditional');
