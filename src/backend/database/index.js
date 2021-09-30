@@ -11,6 +11,8 @@ const app = express();
 const server = http.createServer(app);
 app.use(express.json());
 var router = express.Router();
+const cors = require('cors');
+app.use(cors());
 
 // Requirements for Sequelize
 const { Sequelize, Model, DataTypes } = require('sequelize');
@@ -24,6 +26,8 @@ const sequelize = new Sequelize('sqlite::memory:', {
 // Create router for login page
 var login = require('./login.js');
 app.use('/login', login);
+
+
 
 // TODO: Make route sub-folder for multiple tables
 // Routes for other data information, locates the folders
@@ -109,8 +113,6 @@ app.delete('/users/:id', async (req, res) => {
     res.json(deletedUser);
   }
 });
-
-
 
 server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);

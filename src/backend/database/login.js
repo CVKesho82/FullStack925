@@ -20,19 +20,26 @@ const sequelize = new Sequelize('sqlite::memory:', {
 });
 
 // Check email and password match user submitted data
-router.get('/verify', async (req, res) => {
-    const foundUser = await User.findOne(req.body.email);
-    if (foundUser === null) { // if user not found, 
-      console.log('User does not exist');
-    } else {
-      // Verify user information matches the database
-      if (foundUser.hash !== req.body.password) {
+router.post('/verify', async (req, res) => {
+  console.log(req.body);
+  const bodyEmail = req.body.email;
+  await User.findOne({where: { email: bodyEmail } }).then (foundUser => {
+    // If user exists and hash matches database
+    console.log('DEBUG',foundUser.id, foundUser.email, foundUser.hash);
+    if (foundUser !== null) { // If user exist in the database
+      if (foundUser.hash === req.body.password) { // If password matches the database
+        console.log('reached conditional');
         res.status(200).send({message : 'Login sucessful!'});
-      } else {
-        console.log('Username or password incorrect')
+      } else { // 
+        res.status(401).send({message: 'Username or password incorrect'})
       }
+    } else {
+      res.status(400).send({message: 'User does not exist'})
     }
+  });
 });
+      
+    
 
 router.post('/', function(req, res){
   res.send('POST route on things.');
