@@ -23,11 +23,13 @@ const sequelize = new Sequelize('sqlite::memory:', {
 router.post('/verify', async (req, res) => {
   console.log(req.body);
   const bodyEmail = req.body.email;
+  // TODO:  make case insensitive 
   await User.findOne({where: { email: bodyEmail } }).then (foundUser => {
     // If user exists and hash matches database
     // console.log('DEBUG',foundUser.id, foundUser.email, foundUser.hash);
     if (foundUser !== null) { // If user exist in the database
-      if (foundUser.hash === req.body.password) { // If password matches the database
+      if (foundUser.hash === req.body.password) { // If password matches the database 
+
         console.log('reached conditional');
         res.status(200).send({message : 'Login sucessful!'});
       } else { // 
