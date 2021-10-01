@@ -12,7 +12,7 @@ function checkLogin() {
             'Content-Type': 'application/json'
           },
         body: JSON.stringify(
-            {email: document.getElementById("input1").value,
+            {email: document.getElementById("input1").value.toLowerCase(),
             password: document.getElementById("input2").value})
     }).then (res => res.json())
     .then (data => console.log(data))

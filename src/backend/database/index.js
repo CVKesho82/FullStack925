@@ -23,8 +23,8 @@ const sequelize = new Sequelize('sqlite::memory:', {
   define: { freezeTableName: true}
 });
 
-// Create router for login page
-var login = require('./login.js');
+// Create router for other pages page
+var login = require('./routes/login.js');
 app.use('/login', login);
 
 

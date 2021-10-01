@@ -9,56 +9,50 @@
     <title>Login</title>
 </head>
 <body>
-    <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-          <div class="card bg-dark text-white" style="border-radius: 1rem;">
-            <div class="card-body p-5 text-center">
-  
-              <div class="mb-md-5 mt-md-4 pb-5">
-
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+            <div class="mb-md-5 mt-md-4 pb-5">
+            
               <!-- Header -->
-  
-              <h2 class="fw-bold mb-2 text-uppercase">Welcome to Adulting</h2>
-              <p class="text-white-50 mb-5">Enter your Email and Password to get assistance with your adulting needs!</p>
+            <h2 class="fw-bold mb-2 text-uppercase">Welcome to Adulting</h2>
+            <p class="text-white-50 mb-5">Enter your Email and Password to get assistance with your adulting needs!</p>
 
-              <!-- Email with client side email validation - contains@-->
-    
+            <!-- Email with client side email validation - contains@-->
+            <form>
               <div class="form-outline form-white mb-4">
                 <input type="email" id="input1" class="form-control form-control-lg" required/>
                 <label class="form-label" for="typeEmail">Email</label>
               </div>
-  
-              <!-- Password with client side password validation - not null-->
-              
+
+            <!-- Password with client side password validation - not null-->
+            
               <div class="form-outline form-white mb-4">
                 <input type="password" id="input2" class="form-control form-control-lg" required/>
                 <label class="form-label" for="password">Password</label>
               </div>
-  
-              <!-- <div><p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p></div> -->
 
-              <!-- Checkbox -->
+            <!-- Checkbox -->
               <div class="form-check d-flex justify-content-start mb-4">
                 <input class="form-check-input" type="checkbox" value="" id="checkbox"/>
                 <label class="form-check-label" for="typeCheckbox"> Remember Email </label>
               </div>
 
-              <!-- Button -->
-                <div>
-                <button id="loginbtn" class="btn btn-outline-light btn-lg px-5" onclick = checkLogin()>Login</button>
-                </div>
-              <!-- Register -->
-  
+            <!-- Button -->
               <div>
-                <p class="mb-0">Don't have an account? <a href="Registration.html" class="text-white-50 fw-bold">Register Now</a></p>
+              <button id="loginbtn" class="btn btn-outline-light btn-lg px-5" onclick = checkLogin()>Login</button>
               </div>
-            </div>
+            <!-- Register -->
+            </form>
+          <div>
+            <p class="mb-0">Don't have an account? <a href="Registration.html" class="text-white-50 fw-bold">Register Now</a></p>
           </div>
         </div>
       </div>
     </div>
+  </div>
 </body>
 <script src="../backend/scripts/scripts.js"></script>
-  
 </html>
