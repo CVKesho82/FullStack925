@@ -25,8 +25,8 @@ router.post('/verify', async (req, res) => {
   const bodyEmail = req.body.email;
   await User.findOne({where: { email: bodyEmail } }).then (foundUser => { // Check email against database
     if (foundUser !== null) { // If user was found in the database
-      if (foundUser.hash === req.body.password) { // If password matches the database 
-        console.log('reached conditional');
+      if (checkPassword(req.body.password, foundUser.hash)) { // If plaintext password hash matches database hash
+        console.log('Database hash matches plaintext password')
         res.status(200).send({message : 'Login sucessful!'});
       } else { // 
         res.status(401).send({message: 'Username or password incorrect'});
@@ -46,11 +46,12 @@ router.post('/register', async (req, res) => {
       res.status(401).send({message: 'email already taken, please try another'});
     } else {
       console.log('DEBUG: email not registered');
+      requestHash = hashPassword(req.body.password);
       const newUser = User.create({ // Pass info through postman
           firstName: req.body.firstName, 
           lastName: req.body.lastName,
           email: req.body.email,
-          hash: req.body.password});
+          hash: requestHash});
         res.status(201).json({id: newUser.id, message: 'New User created!'});
       }
     });
@@ -62,3 +63,20 @@ router.post('/', function(req, res) {
 
 //export this router to use in our index.js
 module.exports = router;
+
+// bcrypt - Encrypt Passwords
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
+function hashPassword(password) {
+  const hash = bcrypt.hashSync(password, saltRounds);
+  console.log('Plain text: ', password);
+  console.log('Hash:', hash);
+  return hash
+}
+
+function checkPassword(password, hash) {
+  const result = bcrypt.compareSync(password, hash) 
+  console.log('Password matches hash', result);
+  return result
+}
