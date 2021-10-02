@@ -1,0 +1,118 @@
+body {
+    margin:0px;
+    padding: 0px;
+  }
+  /*****************Answer Styles********************/
+  .wrapper {
+    width:80vw;
+    height:80vh;
+    overflow:hidden;
+    background-color:#343a40;
+  }
+  .allcontainer{
+    margin-top:20px;
+    width:60%;
+    margin-left: 20%;
+    border-radius: 10px;
+  }
+  .header{
+    display: flex;
+    background-color:#3498DB;
+    padding-left:10px;
+    font-weight:bold;
+    font: size 15px;
+  
+  }
+  .authors{
+    flex:35%;
+  }
+  .content{
+    flex:65%
+  }
+  .body{
+    display:flex;
+    background-color:#343a40;
+    padding:10px;
+    margin-top:5px;
+
+  }
+  #abutton{
+    border:none;
+    padding:5px;
+    font-weight:bolder;
+    cursor: pointer;
+    float:right;
+    border-radius:15px;
+  }
+  #abutton:hover{
+    border:solid 4px rgba(3, 3, 184, 0.685);
+  }
+  #qbutton{
+    border:none;
+    padding:5px;
+    font-weight:bolder;
+    cursor: pointer;
+    float:right;
+    border-radius:15px;
+  }
+  .answer-area{
+    margin-top:50px;
+  }
+  .answer-area textarea{
+    width:100%;
+    min-height: 100px;
+    padding:5px;
+    margin-block:10px;
+    font-weight: bolder;
+    padding-left:10px;
+    background-color:#3498DB;
+  }
+  .answer-area input{
+    padding:10px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bolder;
+    padding-left:10px;
+  }
+  h6{
+    padding-left:10px;
+    color:#343a40;
+    
+  }
+  .answer-area input:hover{
+    border:solid 4px rgb(65, 75, 65);
+  }
+
+  /*****************Question Styles********************/
+  #qbutton{
+    border:none;
+    padding:5px;
+    font-weight:bolder;
+    cursor: pointer;
+    float:right;
+    border-radius:15px;
+
+  }
+  .question-area{
+    margin-top:50px;
+  }
+  .question-area textarea{
+    width:100%;
+    min-height: 100px;
+    padding:5px;
+    margin-block:10px;
+    font-weight: bolder;
+    padding-left:10px;
+    background-color:#3498DB;
+  }
+
+  .question-area input{
+    padding:10px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bolder;
+    padding-left:10px;
+  }
+  h6{
+    padding-left:10px;
+    color:black;
