@@ -23,6 +23,20 @@ const sequelize = new Sequelize('sqlite::memory:', {
   define: { freezeTableName: true}
 });
 
+// Middleware 
+const morgan = require('morgan');
+const logger = morgan('tiny');
+app.use(logger);
+
+app.all('*', (req, res, next) => {
+  console.log(`${req.method} ${req.path}`);
+  next();
+});
+
+// Security 
+const helmet = require('helmet');
+app.use(helmet());
+
 // Create router for other pages page
 var login = require('./routes/login.js');
 app.use('/login', login);

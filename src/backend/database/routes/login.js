@@ -21,31 +21,42 @@ const sequelize = new Sequelize('sqlite::memory:', {
 
 // Check email and password match user submitted data
 router.post('/verify', async (req, res) => {
-  console.log(req.body);
+  console.log(req.body); // DEBUG
   const bodyEmail = req.body.email;
-  // TODO:  make case insensitive 
-  await User.findOne({where: { email: bodyEmail } }).then (foundUser => {
-    // If user exists and hash matches database
-    // console.log('DEBUG',foundUser.id, foundUser.email, foundUser.hash);
-    if (foundUser !== null) { // If user exist in the database
+  await User.findOne({where: { email: bodyEmail } }).then (foundUser => { // Check email against database
+    if (foundUser !== null) { // If user was found in the database
       if (foundUser.hash === req.body.password) { // If password matches the database 
-
         console.log('reached conditional');
         res.status(200).send({message : 'Login sucessful!'});
       } else { // 
-        res.status(401).send({message: 'Username or password incorrect'})
+        res.status(401).send({message: 'Username or password incorrect'});
       }
     } else {
-      res.status(400).send({message: 'User does not exist'})
+      res.status(400).send({message: 'User does not exist'});
     }
   });
 });
 
+router.post('/register', async (req, res) => {
+  console.log(req.body.password);
+  const bodyEmail = req.body.email;
+  await User.findOne({where: { email: bodyEmail } }).then (foundUser => { // Check email against database
+    if (foundUser !== null) { // If user was found in the database
+      console.log('user already exists');
+      res.status(401).send({message: 'email already taken, please try another'});
+    } else {
+      console.log('DEBUG: email not registered');
+      const newUser = User.create({ // Pass info through postman
+          firstName: req.body.firstName, 
+          lastName: req.body.lastName,
+          email: req.body.email,
+          hash: req.body.password});
+        res.status(201).json({id: newUser.id, message: 'New User created!'});
+      }
+    });
+  });
 
-      
-    
-
-router.post('/', function(req, res){
+router.post('/', function(req, res) {
   res.send('POST route on things.');
 });
 

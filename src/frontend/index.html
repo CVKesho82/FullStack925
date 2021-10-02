@@ -21,32 +21,33 @@
             <p class="text-white-50 mb-5">Enter your Email and Password to get assistance with your adulting needs!</p>
 
             <!-- Email with client side email validation - contains@-->
-            <form>
-              <div class="form-outline form-white mb-4">
-                <input type="email" id="input1" class="form-control form-control-lg" required/>
-                <label class="form-label" for="typeEmail">Email</label>
+            <!-- <form> -->
+              <div class="form-field form-outline form-white mb-4" id = "emailInput">
+                <input type="email" id="email" class="form-control form-control-lg" required/>
+                <label class="form-label" for="typeEmail">Email</label><br>
+                <small id = "emailErr"></small>
               </div>
 
-            <!-- Password with client side password validation - not null-->
-            
-              <div class="form-outline form-white mb-4">
-                <input type="password" id="input2" class="form-control form-control-lg" required/>
-                <label class="form-label" for="password">Password</label>
+              <!-- Password with client side password validation - not null-->
+              <div class="form-field form-outline form-white mb-4" id = "passwordInput">
+                <input type="password" id="passwordID" class="form-control form-control-lg" required/>
+                <label class="form-label" for="password">Password</label><br>
+                <small id = "passwordErr"></small>
               </div>
 
-            <!-- Checkbox -->
+              <!-- Checkbox -->
               <div class="form-check d-flex justify-content-start mb-4">
                 <input class="form-check-input" type="checkbox" value="" id="checkbox"/>
                 <label class="form-check-label" for="typeCheckbox"> Remember Email </label>
               </div>
 
-            <!-- Button -->
+              <!-- Button -->
               <div>
-              <button id="loginbtn" class="btn btn-outline-light btn-lg px-5" onclick = checkLogin()>Login</button>
+              <button id="loginbtn" class="btn btn-outline-light btn-lg px-5" onclick = "validatelogin()">Login</button>
               </div>
-            <!-- Register -->
-            </form>
-          <div>
+              <!-- Register -->
+              <!-- </form> -->
+            <div>
             <p class="mb-0">Don't have an account? <a href="Registration.html" class="text-white-50 fw-bold">Register Now</a></p>
           </div>
         </div>
