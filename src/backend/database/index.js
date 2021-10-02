@@ -136,17 +136,9 @@ server.listen(port, hostname, () => {
 // TODO: checkLogin(login, password) {}
 
 // Routing for login/registration page
-// Login in page
-    // Check database information
-    // If matches, then procceed to main
-    // If false
+
 
 // Check username & database exist in the database
-//  If no username or password exist in database
-//      grab user input from fields, check against database
-//      error 401 -> "That account does not exist, enter a different acount name"
-//  If username & password don't match database records
-//      error 401 -> "Incorrect Username or Password"
 //  If so, do they match?
 //      If Yes to both, then get access to the website
 //      Redirect to main page
