@@ -27,12 +27,12 @@ router.post('/verify', async (req, res) => {
     if (foundUser !== null) { // If user was found in the database
       if (checkPassword(req.body.password, foundUser.hash)) { // If plaintext password hash matches database hash
         console.log('Database hash matches plaintext password')
-        res.status(200).send({message : 'Login sucessful!'});
+        res.status(200).send({message : 'Login sucessful!', login: true});
       } else { // 
-        res.status(401).send({message: 'Username or password incorrect'});
+        res.status(401).send({message: 'Username or password incorrect', login: false});
       }
     } else {
-      res.status(400).send({message: 'User does not exist'});
+      res.status(401).send({message: 'Sorry that user name does not exist', login: false});
     }
   });
 });

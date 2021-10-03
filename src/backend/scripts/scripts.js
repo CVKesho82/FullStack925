@@ -4,11 +4,13 @@
 // Run js validate from login
 function validatelogin() {
     // Form validation through javascript
+
+    // Remove any preivous alerts on screen
+
+    // constans for form validation
     const emailEl = document.getElementById('email').value;
     const emailError = document.getElementById('emailErr');
     const passwordError = document.getElementById('passwordErr');
-    const isRequired = value => value === '' ? false : true;
-    const isBetween = (length, min, max) => length < min || length > max ? false : true;
     const ValidateEmail = (email) => {
         const re = /[@]/;
         return re.test(email);
@@ -17,12 +19,11 @@ function validatelogin() {
     const checkEmail = () => {
         let text = '';
         let valid = false;
-        if (emailEl == null) {
+        if (emailEl === null) {
             text = 'Email cannot be blank';
         } else if (!ValidateEmail(emailEl)) {
-            text = 'Email is not valid.';
+            text = 'Please enter a valid email';
         } else {
-            text = 'Email is valid';
             valid = true;
         }
         document.getElementById("emailErr").innerHTML = text;
@@ -32,13 +33,12 @@ function validatelogin() {
     const checkPassword = () => {
         let text = '';
         let valid = false;
-        let passwordEl = document.getElementById("passwordID").value.trim;
-        if (passwordEl === null) {
+        let passwordEl = document.getElementById("passwordID").value;
+        if (passwordEl === "") {
             text = 'Password cannot be blank.';
-        } else if (passwordEl.length > 4) {
+        } else if (passwordEl.length < 4) {
             text = 'Password must be at least 4 characters long';
         } else {
-            text = 'Password is valid';
             valid = true;
         }
         document.getElementById("passwordErr").innerHTML = text;
@@ -69,10 +69,25 @@ function checkLogin() {
             {email: document.getElementById("email").value,
             password: document.getElementById("passwordID").value})
     }).then (res => res.json())
-    .then (data => console.log(data))
+    .then (data => {
+        console.log(data);
+        showAlert(data)
+        if (data.login) {
+            window.location.replace('main.html');
+        }
+    })
     .catch(function (err) {
         console.log('something went wrong, call on database', err); // console.log the errors if any
     });
+}
+
+function showAlert(data) {
+    if (data.login) { // If login is true
+        document.getElementById("correctLogin").style = "display: show";
+    } else {
+        document.getElementById("incorrectText").innerHTML = data.message;
+        document.getElementById("IncorrectLogin").style = "display: show";
+    }
 }
 
 function registration() {
@@ -95,3 +110,4 @@ function registration() {
         console.log('something went wrong, register to database', err); // console.log the errors if any
     });
 }
+
