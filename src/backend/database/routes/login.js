@@ -43,7 +43,7 @@ router.post('/register', async (req, res) => {
   await User.findOne({where: { email: bodyEmail } }).then (foundUser => { // Check email against database
     if (foundUser !== null) { // If user was found in the database
       console.log('user already exists');
-      res.status(401).send({message: 'email already taken, please try another'});
+      res.status(401).send({message: "Email already has been registered , please try another", registration: false});
     } else {
       console.log('DEBUG: email not registered');
       requestHash = hashPassword(req.body.password);
@@ -52,7 +52,7 @@ router.post('/register', async (req, res) => {
           lastName: req.body.lastName,
           email: req.body.email,
           hash: requestHash});
-        res.status(201).json({id: newUser.id, message: 'New User created!'});
+        res.status(201).json({id: newUser.id, message: 'New User created!', registration: true});
       }
     });
   });

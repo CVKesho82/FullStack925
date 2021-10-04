@@ -323,6 +323,10 @@ left: 2.1rem;
   color: #e1a70a;
 }
 
+.alert {
+  height: 100%;
+}
+
 @-webkit-keyframes check {
   0% {
     height: 0;
