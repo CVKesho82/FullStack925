@@ -99,10 +99,10 @@ app.get('/users/:id', async (req, res) => {
 
 // Update user information
 app.put('/users/:id', async (req, res) => {
-    const {id} = req.params;
+    const {id} = req.params; 
     const userFound = await User.findByPk(id);
     // Check that user exists in the database
-    if (userFound === null) {
+    if (userFound === null) {  // If the user doesn't exist
       console.log('User id not found');
       res.status(400).json({message: "User id doesn't exist in database"});
     } else {

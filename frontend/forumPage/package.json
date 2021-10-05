@@ -1,0 +1,26 @@
+{
+  "name": "forumPage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "forum.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node forum.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-validator": "^6.12.2",
+    "pg": "^8.7.1",
+    "pg-promise": "^10.11.0",
+    "sequelize": "^6.6.5",
+    "sqlite3": "^5.0.2",
+    "validator": "^13.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13",
+    "sequelize-cli": "^6.2.0"
+  }
+}
