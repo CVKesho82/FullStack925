@@ -48,6 +48,20 @@ app.post('/forumQuestions', async(req,res) => {
   });
 })
 
+//------------------------------QUESTION PUT ROUTE (working PUT)-------------------//
+app.put('/forumQuestions/:id', async (req,res)=> {
+  const {id} = req.params;
+  const idFound = await forumQuestions.findByPk(id);
+  if (idFound === null){
+    console.log('Question id not found');
+    res.status(400).json({message:"Question id doesn't exist in database"});
+  }
+  else {
+    const updateQuestion = await forumQuestions.update(req.body,{where: {id}});
+    res.json(updateQuestion);
+  };
+});
+
 //------------------------SUBMIT Question function------------------------------>
 function newQuestion(){
 fetch('http://127.0.0.1:4000/forumQuestions',{
@@ -80,6 +94,20 @@ app.post('/Answers', async(req,res) => {
     answer
   });
 })
+
+//------------------------------ANSWER PUT ROUTE (working)---------------------------------/
+app.put('/Answers/:id', async (req,res)=> {
+  const {id} = req.params;
+  const idFound = await Answers.findByPk(id);
+  if (idFound === null){
+    console.log('Answer id not found');
+    res.status(400).json({message:"Question id doesn't exist in database"});
+  }
+  else {
+    const updateAnswer = await Answers.update(req.body,{where: {id}});
+    res.json(updateAnswer);
+  };
+});
 
 
 
