@@ -30,7 +30,7 @@ const users = require("pg");
 //const pgp = require("pg-promise")();
 //const db = pgp("postgres://postgres:password@host:port/user");
 
-//---------------------GET ALL QUESTIONS (working get) -------------------//
+//---------------------QUESTIONS GET ROUTE (working get route) -------------------//
 
 app.use(express.json());
 app.get('/forumQuestions', async (req, res) => {
@@ -38,7 +38,7 @@ app.get('/forumQuestions', async (req, res) => {
   res.json(questions);
 });
 
-//------------------------POST NEW QUESTION (working post)-----------------------//
+//------------------------QUESTIONS POST ROUTE (working post route)-----------------------//
 app.use(express.json());
 app.post('/forumQuestions', async(req,res) => {
   const {topic,question} =req.body;
@@ -63,6 +63,23 @@ fetch('http://127.0.0.1:4000/forumQuestions',{
       console.log('wrong', err); // console.log the errors if any
   });
  }
+
+//------------------------ANSWERS GET ROUTE (working get route)-----------------------------//
+app.use(express.json());
+app.get('/Answers', async (req, res) => {
+  const answers = await Answers.findAll();
+  res.json(answers);
+});
+
+//-------------------------ANSWER POST ROUTE (working post route)---------------------------//
+app.use(express.json());
+app.post('/Answers', async(req,res) => {
+  const {answer} =req.body;
+  console.log(req.body);
+  const newAnswer = await Answers.create({
+    answer
+  });
+})
 
 
 
