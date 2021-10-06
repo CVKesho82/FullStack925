@@ -2,6 +2,13 @@ body {
     margin:0px;
     padding: 0px;
   }
+
+/********************Background Image formatting*******/
+#bimage{
+    /* height:
+    width: */
+    background-size: contain;
+  }
   /*****************Answer Styles********************/
   .wrapper {
     width:80vw;
