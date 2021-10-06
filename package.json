@@ -4,7 +4,7 @@
   "description": "stack overflow for adult responsibilities",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all && node index.js",
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,6 +15,7 @@
   "keywords": [
     "adulting"
   ],
+  "engines": {"node": "14.17.1"},
   "author": "Scott Henderson, Carmen Kesho, Tim Johns",
   "license": "ISC",
   "bugs": {
