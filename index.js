@@ -1,4 +1,4 @@
-// General app program
+// Routing for Adulting Overflow
 
 // https://sequelize.org/master/manual/model-querying-basics.html#simple-update-queries
 // Use Sequilize to create a CRUD app for a database
@@ -13,10 +13,11 @@ app.use(express.json());
 var router = express.Router();
 const cors = require('cors');
 app.use(cors());
+app.set('view engine', 'html');
 
 // Requirements for Sequelize
 const { Sequelize, Model, DataTypes } = require('sequelize');
-const { User } = require('./models');
+const { User } = require('./src/backend/database/models');
 
 // Enforce table names to be the same as model names
 const sequelize = new Sequelize('sqlite::memory:', {
@@ -38,9 +39,14 @@ const helmet = require('helmet');
 app.use(helmet());
 
 // Create router for other pages page
-var login = require('./routes/login.js');
+var login = require('./src/backend/database/routes');
+// var mainPage = require('./routes/mainPage.js');
 app.use('/login', login);
+// app.use('/', mainPage);
 
+app.get('/', (req, res) => {
+  res.sendFile('index.html', {root: './src/frontend'});
+});
 
 
 // TODO: Make route sub-folder for multiple tables
@@ -53,11 +59,6 @@ app.use('/login', login);
 // app.use('/', indexRouter);
 // app.use('/api/v1/login', loginRouter);
 // app.get(loginRouter, '/checkpassword')
-
-// Hello World
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-});
 
 // CREATE new user in the user table
 app.post('/users', async (req, res) => {
