@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start" : "node index.js",
-    "install" : "npx sequelize-cli init && npx sequelize-cli db:create && npx sequelize-cli model:generate --name User --attributes firstName:string,lastName:string,email:string",
+    "db" : "npx sequelize-cli init && npx sequelize-cli db:create && npx sequelize-cli model:generate --name User --attributes firstName:string,lastName:string,email:string",
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
