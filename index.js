@@ -121,6 +121,7 @@ app.delete('/users/:id', async (req, res) => {
   }
 });
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
+// Commment this out for when hosting on Heroku
+// server.listen(port, hostname, () => {
+//  console.log(`Server running at http://${hostname}:${port}/`);
+// });
