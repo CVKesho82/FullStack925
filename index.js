@@ -23,9 +23,9 @@ const { Sequelize, Model, DataTypes } = require('sequelize');
 const { User } = require('./src/backend/database/models');
 
 // Enforce table names to be the same as model names
-const sequelize = new Sequelize('sqlite::memory:', {
+/* const sequelize = new Sequelize('sqlite::memory:', {
   define: { freezeTableName: true}
-});
+}); */
 
 // Middleware 
 const morgan = require('morgan');
