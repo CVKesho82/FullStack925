@@ -131,3 +131,26 @@ body {
   h6{
     padding-left:10px;
     color:black;
+  }
+  @media screen and (max-width: 900px) {
+    .body{
+      width: 100%;
+        float: none;
+
+    }
+    
+    }
+    @media screen and (max-width: 480px) {
+     .body {
+        width: 100%;
+        float: none;
+      }
+    }
+  
+   
+    
+  
+   
+    
+  
+

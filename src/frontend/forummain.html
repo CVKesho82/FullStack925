@@ -3,7 +3,7 @@
 
 <head>
     <title>AdultingOverflow</title>
-    <link rel="stylesheet" href="/templates/forumstyle.css">
+    <link rel="stylesheet" href="/src/frontend/forumstyles.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
@@ -17,8 +17,7 @@
 
     </script>
 <body>
-    <!---Navbar-->
-    <!--AdultingOverflow Button. Is the home button-->
+      <!--AdultingOverflow Button. Is the home button-->
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <!-- Container wrapper -->
@@ -48,26 +47,19 @@
                         <!--Insert Information!!!!!-->
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="aboutus.html">About Us<i class="fas fa-caret-down"></i></a>
+                        <a class="nav-link" href="aboutus.html">About Us</a>
                         <!--DropDown Menu. Will go to The Exact Category Forum-->
                     </li>
                 </ul>
                 <!-- End of Left Links -->
-            </div>
-            
+            </div>      
     </nav>
     </div>
 
-    <div class="container my-3">
-        <!-- <nav class="searchbar ">
-            <input type="search" id="site-search" name="q" placeholder="Search"
-                aria-label="Search through site content">
-            <button>Search</button>
-        </nav> -->
+    <div class="container my-3">     
         <!---Category -->
         <div class="row">
             <div class="col-12 col-xl-9">
-
              <!--Map-->
                 <!-- ${question.map(category => {
                 return ` -->
@@ -78,11 +70,10 @@
                             <div id="questions" class = "questionsdiv">
                             <!-- <th scope="col" class="forum-col">Topics</th> -->
                             <th scope="col">Questions</th>  
-                            </div>
-                    
+                            </div>                    
                         </tr>
                     </thead>
-                    <!--Map-->
+                    <!--Map TO FIGURE OUT-->
                     <tbody>
                         <!-- ${category.topics.map(topic => {
                         return ` -->
@@ -100,8 +91,7 @@
                                 <div> by <a href="#">${topic.post.author}</a></div>
                                 <div> ${topic.post.date}</div>
                             </td>
-                        </tr>
-                        
+                        </tr>                    
                         <!-- }).join('')} -->
                     </tbody>
                 </table>
@@ -134,21 +124,11 @@
                         <img src="https://www.bing.com/images/blob?bcid=TsYX.7Q0iUsDAVgE1K6CRlTBIlFN.....18" height="60"
                             alt="" loading="lazy" color="white" id="fi" />
                     </p>
-                </div>
-                <div class="col-auto">
-                    <!-- Contact Us Button TODO!!!!!-->
-                    <a id="btn_c" href="/contact" class="btn btn-outline-light mb-4">
-                        Contact Us
-                    </a>
-                </div>
-            </div>
-            </section>
+               </section>
         </div>
-
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
             2021 AdultingOverflow
         </div>
-
     </footer>
     <!---End of Footer-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -181,4 +161,4 @@
 });
 </script>
 </body>
-</html> -->
+</html> 
