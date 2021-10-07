@@ -4,8 +4,8 @@
 // Use Sequilize to create a CRUD app for a database
 
 const http = require('http');
-const hostname = '127.0.0.1';
-const port = 3000;
+const hostname = 'https://adultingfullstack.herokuapp.com';
+const port = 8000;
 const express = require('express');
 const app = express();
 const server = http.createServer(app);
@@ -14,6 +14,9 @@ var router = express.Router();
 const cors = require('cors');
 app.use(cors());
 app.set('view engine', 'html');
+
+// Code for Heroku
+app.listen(process.env.PORT || 8000, () => console.log("Server is running..."));
 
 // Requirements for Sequelize
 const { Sequelize, Model, DataTypes } = require('sequelize');
