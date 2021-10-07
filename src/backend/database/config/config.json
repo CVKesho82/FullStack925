@@ -1,23 +1,27 @@
 {
   "development": {
-    "username": "root",
-    "password": "test",
-    "database": "adulting",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "username": "rmbfsoekcxovzo",
+    "password": "a22ff17ed53c79965a0930ebdac29c404a4eeba67311b2bbebc69cec1987284e",
+    "database": "d531meffrd4j1b",
+    "host": "ec2-52-86-123-180.compute-1.amazonaws.com",
+    "dialect": "postgres",
+    "ssl" : {
+      "require" : true,
+      "rejectUnauthorized" : false
+    }
   },
   "test": {
-    "username": "root",
-    "password": "test",
-    "database": "database_test",
-    "host": "127.0.0.1",
+    "username": "rmbfsoekcxovzo",
+    "password": "a22ff17ed53c79965a0930ebdac29c404a4eeba67311b2bbebc69cec1987284e",
+    "database": "d531meffrd4j1b",
+    "host": "ec2-52-86-123-180.compute-1.amazonaws.com",
     "dialect": "postgres"
   },
   "production": {
-    "username": "root",
-    "password": "test",
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "username": "rmbfsoekcxovzo",
+    "password": "a22ff17ed53c79965a0930ebdac29c404a4eeba67311b2bbebc69cec1987284e",
+    "database": "d531meffrd4j1b",
+    "host": "ec2-52-86-123-180.compute-1.amazonaws.com",
     "dialect": "postgres",
     "use_env_variable": "DATABASE_URL",
     "dialectOptions": {"ssl": { "require": true, "rejectUnauthorized": false }}
