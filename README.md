@@ -49,7 +49,7 @@ These are many use cases for the application/API, but here are a few
     - Javascript
 
 ## MEET THE TEAM
-- Scott Henderson  ![Scott Pic](img src="/src/front/images/scott_henderson_pic.jpg)
+- Scott Henderson  <img src="./src/front/images/scott_henderson_pic.jpg">
 - Tim Johns <img src="profilepicresize.jpg">
 - Carmen Kesho <img src="Carmen_Kesho_HighRes_CropSmall.jpg">
 
