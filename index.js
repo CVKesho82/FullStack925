@@ -42,7 +42,7 @@ const helmet = require('helmet');
 app.use(helmet());
 
 // Create router for other pages page
-var login = require('./src/backend/database/routes');
+var login = require('./src/backend/database/routes/login.js');
 // var mainPage = require('./routes/mainPage.js');
 app.use('/login', login);
 // app.use('/', mainPage);
