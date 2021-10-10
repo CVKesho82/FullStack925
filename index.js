@@ -1,8 +1,4 @@
 // Routing for Adulting Overflow
-
-// https://sequelize.org/master/manual/model-querying-basics.html#simple-update-queries
-// Use Sequilize to create a CRUD app for a database
-
 const http = require('http');
 const hostname = '127.0.0.1';
 const port = process.env.port || 8000;
@@ -43,9 +39,7 @@ app.use(helmet());
 
 // Create router for other pages page
 var login = require('./src/backend/database/routes');
-// var mainPage = require('./routes/mainPage.js');
 app.use('/login', login);
-// app.use('/', mainPage);
 
 app.get('/', (req, res) => {
   res.sendFile('index.html', {root: './src/frontend'});
