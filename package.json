@@ -1,42 +1,34 @@
 {
-  "name": "adultingoverflow",
+  "name": "fullstack925",
   "version": "1.0.0",
-  "description": "stack overflow for adult responsibilities",
+  "description": "Adulting is a web application that provides a forum to ask and answer questions surrounding being an adult and the adult processes we have to take on.",
   "main": "index.js",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "pg": "^8.7.1",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.7.0",
+    "underscore": "^1.13.1"
+  },
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/CVKesho82/FullStack925.git"
+    "url": "git+https://github.com/CVKesho82/FullStack925.git"
   },
-  "keywords": [
-    "adulting"
-  ],
-  "engines": {
-    "node": "14.17.1"
-  },
-  "author": "Scott Henderson, Carmen Kesho, Tim Johns",
+  "keywords": [],
+  "author": "Carmen Kehso, Scott Henderson, Timothy Johns",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/CVKesho82/FullStack925/issues"
   },
   "homepage": "https://github.com/CVKesho82/FullStack925#readme",
-  "dependencies": {
-    "@mapbox/node-pre-gyp": "^1.0.5",
-    "bcrypt": "^5.0.1",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "express-es6-template-engine": "^2.2.3",
-    "helmet": "^4.6.0",
-    "morgan": "^1.10.0",
-    "pg": "^8.7.1",
-    "sequelize": "^6.6.5"
-  },
   "devDependencies": {
     "nodemon": "^2.0.13",
-    "sequelize-cli": "^6.2.0"
+    "sequelize-cli": "^5.0.0"
   }
 }

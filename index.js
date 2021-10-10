@@ -4,8 +4,8 @@
 // Use Sequilize to create a CRUD app for a database
 
 const http = require('http');
-const hostname = 'https://adultingfullstack.herokuapp.com';
-const port = 8000;
+const hostname = 'localhost';
+const port = 3000;
 const express = require('express');
 const app = express();
 const server = http.createServer(app);
@@ -20,12 +20,7 @@ app.listen(process.env.PORT || 8000, () => console.log("Server is running..."));
 
 // Requirements for Sequelize
 const { Sequelize, Model, DataTypes } = require('sequelize');
-const { User } = require('./src/backend/database/models');
-
-// Enforce table names to be the same as model names
-/* const sequelize = new Sequelize('sqlite::memory:', {
-  define: { freezeTableName: true}
-}); */
+const { User } = require('./models');
 
 // Middleware 
 const morgan = require('morgan');
