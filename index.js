@@ -39,14 +39,12 @@ app.all('*', (req, res, next) => {
 });
 
 // Create router for other pages page
-var login = require('../FullStack925/src/public/routes/login');
+var login = require('./src/backend/database/scripts');
 app.use('/login', login);
-
-
 
 // Route to main page if user clicks on the main route of the site
 app.get('/', (req, res) => {
-  res.sendFile('index.html', {root: '../FullStack925/src/public'});
+  res.sendFile('index.html', {root: './src/frontend/index.html'});
 });
 
 // CREATE new user in the user table
@@ -66,8 +64,6 @@ app.post('/users', async (req, res) => {
       id: newUser.id
   });
 })
-
-
 
 // READ all Users
 app.get('/users', async (req, res) => {
