@@ -29,8 +29,7 @@
     "helmet": "^4.6.0",
     "morgan": "^1.10.0",
     "pg": "^8.7.1",
-    "sequelize": "^6.6.5",
-    "sqlite3": "^4.2.0"
+    "sequelize": "^6.6.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.13",

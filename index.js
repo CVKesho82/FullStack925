@@ -5,7 +5,7 @@
 
 const http = require('http');
 const hostname = '127.0.0.1';
-const port = 3000;
+const port = process.env.port || 8000;
 const express = require('express');
 const app = express();
 const server = http.createServer(app);
@@ -23,6 +23,9 @@ const { User } = require('./src/backend/database/models');
 const sequelize = new Sequelize('sqlite::memory:', {
   define: { freezeTableName: true}
 });
+
+// Way to start the server on Heroku
+app.listen(process.env.PORT || 8000, () => console.log("Server is running..."));
 
 // Middleware 
 const morgan = require('morgan');
@@ -47,18 +50,6 @@ app.use('/login', login);
 app.get('/', (req, res) => {
   res.sendFile('index.html', {root: './src/frontend'});
 });
-
-
-// TODO: Make route sub-folder for multiple tables
-// Routes for other data information, locates the folders
-// var indexRouter = require('./routes/index.js');
-// var loginRouter = require('./login.js');
-// const postsRouter = require('./routes/posts.js');
-
-// Shorthand for routes, tells what route VS Code to use
-// app.use('/', indexRouter);
-// app.use('/api/v1/login', loginRouter);
-// app.get(loginRouter, '/checkpassword')
 
 // CREATE new user in the user table
 app.post('/users', async (req, res) => {
@@ -129,33 +120,8 @@ app.delete('/users/:id', async (req, res) => {
   }
 });
 
+/*
 server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
-
-// TODO: Update code from clsas to match our project
-// TODO: checkLogin(login, password) {}
-
-// Routing for login/registration page
-
-
-// Check username & database exist in the database
-//  If so, do they match?
-//      If Yes to both, then get access to the website
-//      Redirect to main page
-
-// Registration Page
-// TODO: registration() {}
-//  When user hits submit, update information into the database records
-//      Check that username doesn't conflict with existing username
-//      If conflict exists, prevent database from updating
-//          Return error code 400, "User name already exists"
-//  If successfully updated, return message 201(?) that registration was successful
-//      Redirect to main page
-
-// Hash password function, return as object to update database
-
-// Check username and password exist in database
-//  Check bcrypt hash password matches one in the database
-//  Check that username matches one in database
-//      If true, then return true
+*/
