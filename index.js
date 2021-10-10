@@ -14,7 +14,7 @@ app.set('view engine', 'html');
 
 // Requirements for Sequelize
 const { Sequelize, Model, DataTypes } = require('sequelize');
-const { User } = require('./src/backend/database/models');
+const { User } = require('./models');
 
 // Enforce table names to be the same as model names
 const sequelize = new Sequelize('sqlite::memory:', {
@@ -24,19 +24,17 @@ const sequelize = new Sequelize('sqlite::memory:', {
 // Way to start the server on Heroku
 app.listen(process.env.PORT || 8000, () => console.log("Server is running..."));
 
-// Middleware 
+// Middleware & Security
 const morgan = require('morgan');
 const logger = morgan('tiny');
 app.use(logger);
+const helmet = require('helmet');
+app.use(helmet());
 
 app.all('*', (req, res, next) => {
   console.log(`${req.method} ${req.path}`);
   next();
 });
-
-// Security 
-const helmet = require('helmet');
-app.use(helmet());
 
 // Create router for other pages page
 var login = require('./src/backend/database/routes');
@@ -101,6 +99,7 @@ app.put('/users/:id', async (req, res) => {
     };
 });
 
+// Delete user from the database
 app.delete('/users/:id', async (req, res) => {
   const {id} = req.params;
   // Check that user exists in the database

@@ -12,7 +12,7 @@ app.use(express.json());
 
 // Requirements for Sequelize
 const { Sequelize, Model, DataTypes } = require('sequelize');
-const { User } = require('../models');
+const { User } = require('../../../../models');
 
 // Enforce table names to be the same as model names
 const sequelize = new Sequelize('sqlite::memory:', {
@@ -68,6 +68,7 @@ module.exports = router;
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
+// Functions to Hash and compare passwords
 function hashPassword(password) {
   const hash = bcrypt.hashSync(password, saltRounds);
   console.log('Plain text: ', password);
