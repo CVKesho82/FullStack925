@@ -5,12 +5,14 @@
 
 const http = require('http');
 const hostname = 'localhost';
-const port = 3000;
+const port = process.env.PORT ;
 const express = require('express');
 const app = express();
 const server = http.createServer(app);
 app.use(express.json());
 var router = express.Router();
+
+// Middleware
 const cors = require('cors');
 app.use(cors());
 app.set('view engine', 'html');
@@ -22,10 +24,14 @@ app.listen(process.env.PORT || 8000, () => console.log("Server is running..."));
 const { Sequelize, Model, DataTypes } = require('sequelize');
 const { User } = require('./models');
 
-// Middleware 
+// Middleware & Security
 const morgan = require('morgan');
 const logger = morgan('tiny');
 app.use(logger);
+const helmet = require('helmet');
+app.use(helmet());
+var compression = require('compression');
+app.use(compression()); //Compress all routes
 
 app.all('*', (req, res, next) => {
   console.log(`${req.method} ${req.path}`);
@@ -33,17 +39,16 @@ app.all('*', (req, res, next) => {
 });
 
 // Security 
-const helmet = require('helmet');
-app.use(helmet());
+
 
 // Create router for other pages page
-var login = require('./src/backend/database/routes/login.js');
+var login = require('./routes/login.js');
 // var mainPage = require('./routes/mainPage.js');
 app.use('/login', login);
 // app.use('/', mainPage);
 
 app.get('/', (req, res) => {
-  res.sendFile('index.html', {root: './src/frontend'});
+  res.sendFile('index.html', {root: './templates/'});
 });
 
 

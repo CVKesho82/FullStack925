@@ -12,7 +12,7 @@ app.use(express.json());
 
 // Requirements for Sequelize
 const { Sequelize, Model, DataTypes } = require('sequelize');
-const { User } = require('../../../../models');
+const { User } = require('../models');
 
 // Enforce table names to be the same as model names
 const sequelize = new Sequelize('sqlite::memory:', {
