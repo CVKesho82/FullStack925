@@ -25,6 +25,7 @@ const sequelize = new Sequelize('sqlite::memory:', {
 // Way to start the server on Heroku
 app.listen(process.env.PORT || 8000, () => console.log("Server is running..."));
 
+
 // Middleware & Security
 const morgan = require('morgan');
 const logger = morgan('tiny');
@@ -38,14 +39,14 @@ app.all('*', (req, res, next) => {
 });
 
 // Create router for other pages page
-var login = require('./src/public/routes/login.js');
+var login = require('../FullStack925/src/public/routes/login');
 app.use('/login', login);
 
 
 
 // Route to main page if user clicks on the main route of the site
 app.get('/', (req, res) => {
-  res.sendFile('index.html', {root: 'index.html'});
+  res.sendFile('index.html', {root: '../FullStack925/src/public'});
 });
 
 // CREATE new user in the user table
