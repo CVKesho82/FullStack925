@@ -8,7 +8,6 @@ As this application, server, and database needed to be built within a 2 week tim
 
 <img src="https://user-images.githubusercontent.com/85264996/136456547-a34eb83c-fe6d-4b5a-9f94-3e0696259052.png" alt="login" width="50%"/>
 <img src="https://user-images.githubusercontent.com/85264996/136456209-e33d54f1-1804-4da9-8f5e-5728fee338ea.png" alt="login" width="50%"/>
-<img src="https://user-images.githubusercontent.com/85264996/136456281-022a4a38-641d-4c17-8c93-40eed856a411.png" alt="login" width="50%"/>
 
 ## FUTURE ASPIRATIONS
 
@@ -22,7 +21,6 @@ The sky is the limit as far as building out this application, server and databas
 
 ## KNOWN ISSUES
     - HEROKU: Hosting issues - hosting full site
-    - CRUD API: DELETE: Deleting questions and answers - error regarding truncation
     - ES6 TEMPLATE: Unable to incorporate with the time constraints
     - Pass through Hyperlink Value to the Question Page
 
