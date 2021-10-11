@@ -158,6 +158,7 @@ function checkRegistration() {
     }
 }
 
+// Regiester a user
 function registerUser() {
     console.log('DEBUG: Hit registration function');
     fetch('http://127.0.0.1:3000/login/register', {
