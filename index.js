@@ -39,7 +39,7 @@ app.all('*', (req, res, next) => {
 });
 
 // Create router for other pages page
-var login = require('./src/backend/database/scripts');
+var login = require('./src/backend/database');
 app.use('/login', login);
 
 // Route to main page if user clicks on the main route of the site
