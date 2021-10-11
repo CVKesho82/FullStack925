@@ -5,6 +5,7 @@ const hostname = '127.0.0.1';
 const port = process.env.port || 8000;
 const express = require('express');
 const app = express();
+app.use(express.static('public')) // Use express static to serve static files to the user
 const server = http.createServer(app);
 app.use(express.json());
 var router = express.Router();
@@ -37,11 +38,14 @@ app.all('*', (req, res, next) => {
 });
 
 // Create router for other pages page
-var login = require('./src/backend/database/routes/login.js');
+var login = require('./src/public/routes/login.js');
 app.use('/login', login);
 
+
+
+// Route to main page if user clicks on the main route of the site
 app.get('/', (req, res) => {
-  res.sendFile('index.html', {root: './src/frontend'});
+  res.sendFile('index.html', {root: 'index.html'});
 });
 
 // CREATE new user in the user table
