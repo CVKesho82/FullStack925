@@ -7,16 +7,9 @@ const http = require('https');
 const hostname = '127.0.0.1';
 const port = process.env.PORT || 3000;
 
-// Keychain for local server HTTPS
-var path = require('path')
-var fs = require('fs')
-var certOptions = {
-  key: fs.readFileSync(path.resolve('./cert/server.key')),
-  cert: fs.readFileSync(path.resolve('./cert/server.crt'))
-}
 const express = require('express');
 const app = express();
-const server = http.createServer(certOptions, app).listen(443);
+const server = http.createServer(app)
 app.use(express.json());
 var router = express.Router();
 const cors = require('cors');
