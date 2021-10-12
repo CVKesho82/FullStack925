@@ -10,42 +10,53 @@
     <div id="bimage" style="background-image:url('./Images/iStock-1166620270ii.jpg');">
 </head>
 <body>
-    <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-          <div class="card bg-dark text-white" style="border-radius: 1rem;">
-            <div class="card-body p-5 text-center">
-  
-              <div class="mb-md-5 mt-md-4 pb-5">
+  <div class="alert alert-danger alert-dismissible fade show" id = "IncorrectLogin" role="alert" style = "display:none;">
+    <p class = "text-center" id = "incorrectText"></p>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="alert alert-success alert-dismissible fade show" id = "correctLogin" role="alert" style = "display:none;">
+    <p class = "text-center" id = "alertText">Logging In!</p>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
 
-              <!-- Header -->
-  
-              <h2 class="fw-bold mb-2 text-uppercase">Welcome to Adulting</h2>
-              <p class="text-white-50 mb-5">Enter your Email and Password to get assistance with your adulting needs!</p>
+            <div class="mb-md-5 mt-md-4 pb-5">
 
-              <!-- Email with client side email validation - contains@-->
-              <div class="form-outline form-white mb-4">
-                <input type="email" id="email" class="form-control form-control-lg" required/>
-                <label class="form-label" for="typeEmail">Email</label>
-              </div>
-  
-              <!-- Password with client side password validation - not null-->
-              
-              <div class="form-outline form-white mb-4">
-                <input type="password" id="typePasswordX" class="form-control form-control-lg" required/>
-                <label class="form-label" for="typePasswordX">Password</label>
-              </div>
-            <div>
-              <button id="loginbtn" class="btn btn-outline-light btn-lg px-5" type="submit" onclick="checkLogin()">Login</button>
+            <!-- Header -->
+
+            <h2 class="fw-bold mb-2 text-uppercase">Welcome to Adulting</h2>
+            <p class="text-white-50 mb-5">Enter your Email and Password to get assistance with your adulting needs!</p>
+
+            <!-- Email with client side email validation - contains@-->
+            <div class="form-outline form-white mb-4">
+              <input type="email" id="email" class="form-control form-control-lg" required/>
+              <label class="form-label" for="typeEmail">Email</label>
             </div>
-              <div>
-                <p class="mb-0">Don't have an account? <a href="Registration.html" class="text-white-50 fw-bold">Register Now</a></p>
-              </div>
+
+            <!-- Password with client side password validation - not null-->
+            
+            <div class="form-outline form-white mb-4">
+              <input type="password" id="typePasswordX" class="form-control form-control-lg" required/>
+              <label class="form-label" for="typePasswordX">Password</label>
+            </div>
+          <div>
+            <button id="loginbtn" class="btn btn-outline-light btn-lg px-5" type="submit" onclick="checkLogin()">Login</button>
+          </div>
+            <div>
+              <p class="mb-0">Don't have an account? <a href="Registration.html" class="text-white-50 fw-bold">Register Now</a></p>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 </body>
 <script src="./scripts.js"></script>
   
