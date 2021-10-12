@@ -110,6 +110,7 @@ app.put('/users/:id', async (req, res) => {
     };
 });
 
+
 // Delete users
 app.delete('/users/:id', async (req, res) => {
   const {id} = req.params;
