@@ -3,12 +3,20 @@
 // https://sequelize.org/master/manual/model-querying-basics.html#simple-update-queries
 // Use Sequilize to create a CRUD app for a database
 
-const http = require('http');
+const http = require('https');
 const hostname = '127.0.0.1';
 const port = process.env.PORT || 3000;
+
+// Keychain for local server HTTPS
+var path = require('path')
+var fs = require('fs')
+var certOptions = {
+  key: fs.readFileSync(path.resolve('./cert/server.key')),
+  cert: fs.readFileSync(path.resolve('./cert/server.crt'))
+}
 const express = require('express');
 const app = express();
-const server = http.createServer(app);
+const server = http.createServer(certOptions, app).listen(443);
 app.use(express.json());
 var router = express.Router();
 const cors = require('cors');
@@ -29,6 +37,9 @@ const morgan = require('morgan');
 const logger = morgan('tiny');
 app.use(logger);
 
+// Static Files use Template folder
+app.use(express.static('template'))
+
 app.all('*', (req, res, next) => {
   console.log(`${req.method} ${req.path}`);
   next();
@@ -43,7 +54,7 @@ var login = require('./src/backend/database/routes');
 app.use('/login', login);
 
 app.get('/', (req, res) => {
-  res.sendFile('index.html', {root: './src/frontend'});
+  res.sendFile('index.html', {root: './template/index.html'});
 });
 
 // CREATE new user in the user table
