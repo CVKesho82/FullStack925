@@ -3,12 +3,13 @@
 // https://sequelize.org/master/manual/model-querying-basics.html#simple-update-queries
 // Use Sequilize to create a CRUD app for a database
 
-const http = require('http');
+const http = require('https');
 const hostname = '127.0.0.1';
-const port = 3000;
+const port = process.env.PORT || 3000;
+
 const express = require('express');
 const app = express();
-const server = http.createServer(app);
+const server = http.createServer(app)
 app.use(express.json());
 var router = express.Router();
 const cors = require('cors');
@@ -17,17 +18,20 @@ app.set('view engine', 'html');
 
 // Requirements for Sequelize
 const { Sequelize, Model, DataTypes } = require('sequelize');
-const { User } = require('./src/backend/database/models');
+const { User } = require('./database/models');
 
-// Enforce table names to be the same as model names
-const sequelize = new Sequelize('sqlite::memory:', {
-  define: { freezeTableName: true}
+// console log server running at a given port, Heroku or local
+app.listen(port, () => {
+  console.log(`Server running at port ` + port);
 });
 
 // Middleware 
 const morgan = require('morgan');
 const logger = morgan('tiny');
 app.use(logger);
+
+// Static Files use Template folder
+app.use(express.static('template'))
 
 app.all('*', (req, res, next) => {
   console.log(`${req.method} ${req.path}`);
@@ -39,26 +43,12 @@ const helmet = require('helmet');
 app.use(helmet());
 
 // Create router for other pages page
-var login = require('./src/backend/database/routes');
-// var mainPage = require('./routes/mainPage.js');
+var login = require('./database/routes/login.js');
 app.use('/login', login);
-// app.use('/', mainPage);
 
 app.get('/', (req, res) => {
-  res.sendFile('index.html', {root: './src/frontend'});
+  res.sendFile('index.html', {root: './template/index.html'});
 });
-
-
-// TODO: Make route sub-folder for multiple tables
-// Routes for other data information, locates the folders
-// var indexRouter = require('./routes/index.js');
-// var loginRouter = require('./login.js');
-// const postsRouter = require('./routes/posts.js');
-
-// Shorthand for routes, tells what route VS Code to use
-// app.use('/', indexRouter);
-// app.use('/api/v1/login', loginRouter);
-// app.get(loginRouter, '/checkpassword')
 
 // CREATE new user in the user table
 app.post('/users', async (req, res) => {
@@ -113,6 +103,8 @@ app.put('/users/:id', async (req, res) => {
     };
 });
 
+
+// Delete users
 app.delete('/users/:id', async (req, res) => {
   const {id} = req.params;
   // Check that user exists in the database
@@ -128,34 +120,3 @@ app.delete('/users/:id', async (req, res) => {
     res.json(deletedUser);
   }
 });
-
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
-
-// TODO: Update code from clsas to match our project
-// TODO: checkLogin(login, password) {}
-
-// Routing for login/registration page
-
-
-// Check username & database exist in the database
-//  If so, do they match?
-//      If Yes to both, then get access to the website
-//      Redirect to main page
-
-// Registration Page
-// TODO: registration() {}
-//  When user hits submit, update information into the database records
-//      Check that username doesn't conflict with existing username
-//      If conflict exists, prevent database from updating
-//          Return error code 400, "User name already exists"
-//  If successfully updated, return message 201(?) that registration was successful
-//      Redirect to main page
-
-// Hash password function, return as object to update database
-
-// Check username and password exist in database
-//  Check bcrypt hash password matches one in the database
-//  Check that username matches one in database
-//      If true, then return true
