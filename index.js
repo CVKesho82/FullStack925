@@ -18,7 +18,7 @@ app.set('view engine', 'html');
 
 // Requirements for Sequelize
 const { Sequelize, Model, DataTypes } = require('sequelize');
-const { User } = require('./src/backend/database/models');
+const { User } = require('./database/models');
 
 // console log server running at a given port, Heroku or local
 app.listen(port, () => {
@@ -43,7 +43,7 @@ const helmet = require('helmet');
 app.use(helmet());
 
 // Create router for other pages page
-var login = require('./src/backend/database/routes');
+var login = require('./database/routes/login.js');
 app.use('/login', login);
 
 app.get('/', (req, res) => {
