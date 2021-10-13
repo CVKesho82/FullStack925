@@ -5,8 +5,7 @@
     "database": "d531meffrd4j1b",
     "host": "ec2-52-86-123-180.compute-1.amazonaws.com",
     "dialect": "postgres",
-    "dialectOptions" : {
-      "ssl" : {
+    "dialectOptions" : {"ssl" : {
         "require" : true,
         "rejectUnauthorized" : false
       }
@@ -20,7 +19,7 @@
     "host": "ec2-52-86-123-180.compute-1.amazonaws.com",
     "dialect": "postgres"
   },
-  
+
   "production": {
     "username": "rmbfsoekcxovzo",
     "password": "a22ff17ed53c79965a0930ebdac29c404a4eeba67311b2bbebc69cec1987284e",

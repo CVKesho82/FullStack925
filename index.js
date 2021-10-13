@@ -19,6 +19,8 @@ app.set('view engine', 'html');
 // Requirements for Sequelize
 const { Sequelize, Model, DataTypes } = require('sequelize');
 const { User } = require('./database/models');
+const { Answers } = require('./database/models');
+const { forumQuestions } = require('./database/models');
 
 // console log server running at a given port, Heroku or local
 app.listen(port, () => {
@@ -34,6 +36,9 @@ app.use(logger);
 app.use(express.static('template'))
 
 app.all('*', (req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With");
+  res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
   console.log(`${req.method} ${req.path}`);
   next();
 });
