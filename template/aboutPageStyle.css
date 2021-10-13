@@ -8,9 +8,11 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
-
-  background-color: whitesmoke;
+    background-color: whitesmoke;
+  background-image: url('./Images/iStock-1166620270ii.jpg');
+  background-size: contain;
 }
+
 .nav-link:hover {
   position: relative;
   display: inline-block;
@@ -44,7 +46,7 @@ body {
   padding: 50px;
   text-align: center;
   background-color: #485461;
-  background: radial-gradient(transparent, black),
+  background: radial-gradient(transparent, rgb(192, 189, 189)),
     url("https://www.colourbox.com/preview/2423381-a-unique-fractal-background-texture-that-will-enhance-any-design.jpg");
   background-size: cover;
 }
@@ -88,43 +90,29 @@ p {
   margin: 10px;
   align-items: baseline;
 }
+#sticky-footer {
+  position:relative;
+  bottom: 0;
+  width:100%;
+  left:0;
+  height: auto;
+}
 
 .btn:hover {
   background-color: rgb(238, 230, 230);
 }
 
 @media screen and (max-width: 900px) {
-  .col1 {
-    width: 50%;
-  }
-  .col2 {
-    width: 25%;
-  }
-  .col3 {
+  .body{
     width: 100%;
+      float: none;
+
+  }
+  
   }
   @media screen and (max-width: 480px) {
-    .col1,
-    .col2,
-    .col3 {
+   .body {
       width: 100%;
       float: none;
     }
   }
-
-  .container {
-    width: 100%;
-    display: block;
-  }
-  body {
-    background-color: whitesmoke;
-  }
-  .navbar {
-    float: none;
-    width: auto;
-  }
-  .about-section {
-    width: 100%;
-    display: block;
-  }
-}
