@@ -10,14 +10,13 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Answers.hasOne(models.User)
-      // // define association here
+      // define association here
     }
   };
   Answers.init({
     answer: DataTypes.STRING,
     forumQuestions_id: DataTypes.INTEGER,
-    User_id:DataTypes.STRING
+    User_id: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Answers',
