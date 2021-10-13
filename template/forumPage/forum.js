@@ -1,7 +1,7 @@
 const http = require('http');
 
-const hostname = '127.0.0.1';
-const port = '4000';//can be whatever you like
+const hostname = 'ec2-52-86-123-180.compute-1.amazonaws.com';
+const port = '5432';//can be whatever you like
 
 //Express
 //const { hostname } = require('os');
