@@ -48,9 +48,9 @@ These are many use cases for the application/API, but here are a few
     - Javascript
 
 ## MEET THE TEAM
-- Scott Henderson  <img src="./src/frontend/Images/scott_henderson_pic.jpg" width="60">
-- Tim Johns <img src="./src/frontend/Images/profilepicresize.jpg" width="60">
-- Carmen Kesho <img src="./src/frontend/Images/Carmen_Kesho_HighRes_CropSmall.jpg" width="60">
+- Scott Henderson  <img src="./template/Images/scott_henderson_pic.jpg" width="60">
+- Tim Johns <img src="./template/Images/profilepicresize.jpg" width="60">
+- Carmen Kesho <img src="./template/Images/Carmen_Kesho_HighRes_CropSmall.jpg" width="60">
 
 
 

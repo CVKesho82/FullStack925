@@ -3,11 +3,10 @@
 
 <head>
     <title>AdultingOverflow</title>
-    <link rel="stylesheet" href="/src/frontend/forumstyles.css">
+    <link rel="stylesheet" href="/templates/forumstyle.css">
+    <link rel="stylesheet" href="forumstyles.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
@@ -15,14 +14,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
 
-    </script>
+    
 <body>
-      <!--AdultingOverflow Button. Is the home button-->
+    <!---Navbar-->
+    <!--AdultingOverflow Button. Is the home button-->
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <!-- Container wrapper -->
         <div class="container-fluid">
-            <!-- button will show on mobile!!!!-->
             <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarContent"
                 aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
@@ -30,70 +28,56 @@
 
             <!-- Wrapper collapsible -->
             <div class="collapse navbar-collapse" id="navbarContent">
-                <!-- Navbar logo -->
                 <a class="navbar-brand mt-2 mt-lg-0" href="#">
-                    <!--Logo Here-->
-                    <!-- <img src="https://www.bing.com/images/blob?bcid=TsYX.7Q0iUsDAVgE1K6CRlTBIlFN.....18" height="60"
-                        alt="" loading="lazy" color="white" /> -->
                 </a>
                 <!-- Left Nav Links -->
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link" href="forummain.html">Home</a>
-                        <!--Insert Information!!!!!-->
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="qforum.html">Start a Forum</a>
-                        <!--Insert Information!!!!!-->
+                        <a class="nav-link" href="qforum.html">Start Forum</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="aboutus.html">About Us</a>
-                        <!--DropDown Menu. Will go to The Exact Category Forum-->
+                        <a class="nav-link" href="aboutUs.html">About Us</a>
                     </li>
                 </ul>
                 <!-- End of Left Links -->
-            </div>      
+            </div>
+            
     </nav>
     </div>
 
-    <div class="container my-3">     
+    <div class="container my-3">
+        <!-- <nav class="searchbar ">
+            <input type="search" id="site-search" name="q" placeholder="Search"
+                aria-label="Search through site content">
+            <button>Search</button>
+        </nav> -->
         <!---Category -->
         <div class="row">
             <div class="col-12 col-xl-9">
-             <!--Map-->
-                <!-- ${question.map(category => {
-                return ` -->
-                <h2 class="h4 category mb-0 p-4 rounded-top text-light">${question.question}</h2>
+
+                <h2>Welcome to the Wonderful World of Adulting! This open forum here to support your adulting needs.</h2>
+                <br>
+                <hr>
+                <h5>Need some adulting help? Go to the Start Forum Tab or Submit your question here.</h5>
+                <a href="qforum.html" class="btn btn-primary">Submit Question</a>
+                <div></div>
+                <br>
+                <hr>
+                
+                <h5>Think you've got the answer? Click on the question to submit your answer.</h5>          
                 <table class="table table-striped table-bordered table-responsive">
                     <thead class="thead-light">
                         <tr>
-                            <div id="questions" class = "questionsdiv">
-                            <!-- <th scope="col" class="forum-col">Topics</th> -->
-                            <th scope="col">Questions</th>  
-                            </div>                    
+                            <td>
+                            <div id="questions" class = "questionsdiv">                     
+                            </div>
+                        </td> 
                         </tr>
                     </thead>
-                    <!--Map TO FIGURE OUT-->
-                    <tbody>
-                        <!-- ${category.topics.map(topic => {
-                        return ` -->
-                        <tr>
-                            <td>
-                                <h3 class="h5 mb-0"><a href="#">${topics.cars}</a></h3>
-                                <p class="mb-0">${topics.question}</p>
-                            </td>
-                            <td>
-                                <div>""</div>
-                            </td>
-                            <td>""</td>
-                            <td>
-                                <h4 class="h6 mb-0"><a href="#"> ${topic.post.name}</a></h4>
-                                <div> by <a href="#">${topic.post.author}</a></div>
-                                <div> ${topic.post.date}</div>
-                            </td>
-                        </tr>                    
-                        <!-- }).join('')} -->
-                    </tbody>
+                    <!--Map-->  
                 </table>
             </div>
             <!--Aside Section-->
@@ -105,7 +89,9 @@
                                 <div class="card-body">
                                     <h2 class="h4 card-title">Resources</h2>
                                     <dl class="row mb-0">
-                                        <li><a href="#">Resource Link Here</a></li>
+                                        <li><a href="https://theadultingacademy.com/">Course:The Adulting Academy</a></li>
+                                        <li><a href="https://www.wnycstudios.org/podcasts/adulting">Podcast:Adulting</a></li>
+                                        <li><a href="https://www.amazon.com/Adulting-101-What-They-Teach/dp/1717315704/ref=asc_df_1717315704/?tag=hyprod-20&linkCode=df0&hvadid=312446862670&hvpos=&hvnetw=g&hvrand=9327529304926517831&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9010802&hvtargid=pla-761325104872&psc=1">Book:What They Don't Teach You</a></li>
                                 </div>
                             </div>
                         </div>
@@ -124,11 +110,21 @@
                         <img src="https://www.bing.com/images/blob?bcid=TsYX.7Q0iUsDAVgE1K6CRlTBIlFN.....18" height="60"
                             alt="" loading="lazy" color="white" id="fi" />
                     </p>
-               </section>
+                </div>
+                <div class="col-auto">
+                    <!-- Contact Us Button TODO!!!!!-->
+                    <a id="btn_c" href="aboutUs.html" class="btn btn-outline-light mb-4">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+            </section>
         </div>
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+
+        <div class="text-center p-3" id="footer" style="background-color: rgba(0, 0, 0, 0.2);">
             2021 AdultingOverflow
         </div>
+
     </footer>
     <!---End of Footer-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -149,16 +145,19 @@
                 // const questionli = document.createElement("a");
                 // questionli.href = question.question;
                 const a = document.createElement('a');
-                a.className = "hyperlink";
+                a.id = "hyperlink";
+                a.onclick="bookmark(this);";
+                a.value="";
                 const linkText = document.createTextNode(question.question);
                 a.appendChild(linkText);
                 a.href = "aforum.html";
                 questionul.appendChild(a);   
-                questionul.appendChild(document.createElement("br")); 
+                questionul.appendChild(document.createElement("br"));
+         
                                      
 });
 });
 });
 </script>
 </body>
-</html> 
+</html> -->
