@@ -4,7 +4,7 @@
 // Use Sequilize to create a CRUD app for a database
 
 const http = require('https');
-const hostname = '127.0.0.1'; //cvk updated host name to heroku credentials
+const hostname = '127.0.0.1';
 const port = process.env.PORT || 3000;
 
 const express = require('express');
