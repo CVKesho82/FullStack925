@@ -29,8 +29,8 @@ app.set('views', 'templates');
 app.set('view engine', 'html');
 
 // console log server running at a given port, Heroku or local
-app.listen(port, hostname, () => { //cvk added hostname to this line. Was previously just referencing port
-  console.log(`Server running at hostname:` + hostname ` ,and port` + port);
+app.listen(port, () => { //cvk added hostname to this line. Was previously just referencing port
+  console.log(`Server running at port` + port);
 });
 
 
