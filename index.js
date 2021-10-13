@@ -19,6 +19,8 @@ app.set('view engine', 'html');
 // Requirements for Sequelize
 const { Sequelize, Model, DataTypes } = require('sequelize');
 const { User } = require('./database/models');
+const { Answers } = require('./database/models');
+const { forumQuestions } = require('./database/models');
 
 // console log server running at a given port, Heroku or local
 app.listen(port, () => {
@@ -120,3 +122,100 @@ app.delete('/users/:id', async (req, res) => {
     res.json(deletedUser);
   }
 });
+
+//-------------------------QUESTIONS GET ROUTE (working get route) ----------------------//
+
+app.use(express.json());
+app.get('/forumQuestions', async (req, res) => {
+  const questions = await forumQuestions.findAll();
+  res.json(questions);
+});
+
+//------------------------QUESTIONS POST ROUTE (working post route)-----------------------//
+app.use(express.json());
+app.post('/forumQuestions', async(req,res) => {
+  const {topic,question} =req.body;
+  const newQuestion = await forumQuestions.create({
+    topic,
+    question
+  });
+})
+
+//------------------------------QUESTION PUT ROUTE (working PUT)-----------------------//
+app.put('/forumQuestions/:id', async (req,res)=> {
+  const {id} = req.params;
+  const idFound = await forumQuestions.findByPk(id);
+  if (idFound === null){
+    console.log('Question id not found');
+    res.status(400).json({message:"Question id doesn't exist in database"});
+  }
+  else {
+    const updateQuestion = await forumQuestions.update(req.body,{where: {id}});
+    res.json(updateQuestion);
+  };
+});
+
+//----------------------------------QUESTION DELETE (working route)-------------------------//
+
+app.delete('/forumQuestions/:id', async (req,res)=> {
+  const {id} = req.params;
+  const oneQuestion = await forumQuestions.findByPk(id);
+  if (oneQuestion === null){
+    // console.log('Question id not found');
+    res.status(400).json({message:"That question id doesn't exist in database"});
+  }
+  else {
+    const deleteQuestion = await forumQuestions.destroy({where:{id}});
+    // console.log('deleted');
+    res.json(deleteQuestion);
+  };
+});
+
+//----------------------------ANSWERS GET ROUTE (working get route)--------------------------//
+app.use(express.json());
+app.get('/Answers', async (req, res) => {
+  const answers = await Answers.findAll();
+  res.json(answers);
+});
+
+//-------------------------ANSWER POST ROUTE (working post route)---------------------------//
+app.use(express.json());
+app.post('/Answers', async(req,res) => {
+  const {answer} =req.body;
+  console.log(req.body);
+  const newAnswer = await Answers.create({
+    answer
+  });
+})
+
+//---------------------------------ANSWER PUT ROUTE (working)---------------------------------//
+app.put('/Answers/:id', async (req,res)=> {
+  const {id} = req.params;
+  const idFound = await Answers.findByPk(id);
+  if (idFound === null){
+    console.log('Answer id not found');
+    res.status(400).json({message:"Question id doesn't exist in database"});
+  }
+  else {
+    const updateAnswer = await Answers.update(req.body,{where: {id}});
+    res.json(updateAnswer);
+  };
+});
+
+//----------------------------------ANSWER DELETE (working)------------------------------------//
+app.delete('/Answers/:id', async (req,res)=> {
+  const {id} = req.params;
+  const oneAnswer = await Answers.findByPk(id);
+  if (oneAnswer === null){
+    // console.log('Answer id not found');
+    res.status(400).json({message:"That answer id doesn't exist in database"});
+  }
+  else {
+    const deleteAnswer = await Answers.destroy({where: {id}});
+    // console.log('Answer deleted');
+    res.json(deleteAnswer);
+  };
+});
+
+
+
