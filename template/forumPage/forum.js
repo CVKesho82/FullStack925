@@ -1,7 +1,7 @@
 const http = require('http');
 
-const hostname = 'ec2-52-86-123-180.compute-1.amazonaws.com';
-const port = '5432';//can be whatever you like
+const hostname = '127.0.0.1';
+const port = '3000';//can be whatever you like
 
 //Express
 //const { hostname } = require('os');
@@ -64,7 +64,7 @@ app.put('/forumQuestions/:id', async (req,res)=> {
 
 //-------------------------------SUBMIT Question function (working)------------------------------//
 function newQuestion(){
-fetch('http://127.0.0.1:4000/forumQuestions',{
+fetch('http://127.0.0.1:3000/forumQuestions',{
   method:"POST",
   headers:{ 'Accept':'application/json','Content-Type': 'application/json'},
   body:JSON.stringify(
@@ -115,7 +115,7 @@ app.post('/Answers', async(req,res) => {
 
 
 function submitAnswer(){
-  fetch('http://127.0.0.1:4000/Answers',{
+  fetch('http://127.0.0.1:3000/Answers',{
     method:"POST",
     headers:{ 'Accept':'application/json','Content-Type': 'application/json'},
     body:JSON.stringify(
