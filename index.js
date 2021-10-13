@@ -22,10 +22,17 @@ const { User } = require('./database/models');
 const { Answers } = require('./database/models');
 const { forumQuestions } = require('./database/models');
 
+//es6 engine
+const es6Renderer = require('express-es6-template-engine');
+app.engine('html', es6Renderer);
+app.set('views', 'templates');
+app.set('view engine', 'html');
+
 // console log server running at a given port, Heroku or local
-app.listen(port, () => {
-  console.log(`Server running at port ` + port);
+app.listen(port, () => { //cvk added hostname to this line. Was previously just referencing port
+  console.log(`Server running at port` + port);
 });
+
 
 // Middleware 
 const morgan = require('morgan');
@@ -123,7 +130,7 @@ app.delete('/users/:id', async (req, res) => {
   }
 });
 
-//-------------------------QUESTIONS GET ROUTE (working get route) ----------------------//
+//-------------------------QUESTIONS GET ROUTE (working route to get all questions) ----------------------//
 
 app.use(express.json());
 app.get('/forumQuestions', async (req, res) => {
@@ -131,7 +138,7 @@ app.get('/forumQuestions', async (req, res) => {
   res.json(questions);
 });
 
-//------------------------QUESTIONS POST ROUTE (working post route)-----------------------//
+//------------------------QUESTIONS POST ROUTE (working route to post new questions)-----------------------//
 app.use(express.json());
 app.post('/forumQuestions', async(req,res) => {
   const {topic,question} =req.body;
@@ -141,7 +148,7 @@ app.post('/forumQuestions', async(req,res) => {
   });
 })
 
-//------------------------------QUESTION PUT ROUTE (working PUT)-----------------------//
+//------------------------------QUESTION PUT ROUTE (working route to update questions)-----------------------//
 app.put('/forumQuestions/:id', async (req,res)=> {
   const {id} = req.params;
   const idFound = await forumQuestions.findByPk(id);
@@ -155,7 +162,7 @@ app.put('/forumQuestions/:id', async (req,res)=> {
   };
 });
 
-//----------------------------------QUESTION DELETE (working route)-------------------------//
+//-----------------------------QUESTION POST ROUTE (working route to delete questions)---------------------//
 
 app.delete('/forumQuestions/:id', async (req,res)=> {
   const {id} = req.params;
@@ -171,14 +178,14 @@ app.delete('/forumQuestions/:id', async (req,res)=> {
   };
 });
 
-//----------------------------ANSWERS GET ROUTE (working get route)--------------------------//
+//----------------------------ANSWERS GET ROUTE (working route to get all answers)--------------------------//
 app.use(express.json());
 app.get('/Answers', async (req, res) => {
   const answers = await Answers.findAll();
   res.json(answers);
 });
 
-//-------------------------ANSWER POST ROUTE (working post route)---------------------------//
+//-------------------------ANSWER POST ROUTE (working route to submit new answers)---------------------------//
 app.use(express.json());
 app.post('/Answers', async(req,res) => {
   const {answer} =req.body;
@@ -188,7 +195,7 @@ app.post('/Answers', async(req,res) => {
   });
 })
 
-//---------------------------------ANSWER PUT ROUTE (working)---------------------------------//
+//---------------------------------ANSWER PUT ROUTE (working route to update answers)---------------------------------//
 app.put('/Answers/:id', async (req,res)=> {
   const {id} = req.params;
   const idFound = await Answers.findByPk(id);
@@ -202,7 +209,7 @@ app.put('/Answers/:id', async (req,res)=> {
   };
 });
 
-//----------------------------------ANSWER DELETE (working)------------------------------------//
+//----------------------------------ANSWER DELETE (working route to delete answers)------------------------------------//
 app.delete('/Answers/:id', async (req,res)=> {
   const {id} = req.params;
   const oneAnswer = await Answers.findByPk(id);
@@ -215,6 +222,10 @@ app.delete('/Answers/:id', async (req,res)=> {
     // console.log('Answer deleted');
     res.json(deleteAnswer);
   };
+});
+//------------------------------------ES6 Template Route (working route to populate ES6)--------------------------------//
+app.get('/goodbye', function(req,res){
+  res.sendFile(__dirname + '/templates/goodbye.html');
 });
 
 

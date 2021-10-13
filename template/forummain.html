@@ -120,7 +120,7 @@
     <script>
         const questionsdiv = document.getElementById("questions");
         document.addEventListener("DOMContentLoaded", () => {
-        fetch('http://127.0.0.1:4000/forumQuestions')
+        fetch('http://127.0.0.1:3000/forumQuestions')
         .then(response => response.json())
         .then(questionsdata => {
             console.log("questionsdata",questionsdata);
@@ -149,3 +149,4 @@
 </script>
 </body>
 </html> 
+
