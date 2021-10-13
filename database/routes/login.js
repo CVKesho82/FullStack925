@@ -29,10 +29,10 @@ router.post('/verify', async (req, res) => {
         console.log('Database hash matches plaintext password')
         res.status(200).send({message : 'Login sucessful!', login: true});
       } else { // 
-        res.status(401).send({message: 'Username or password incorrect', login: false});
+        res.status(401).send({message: 'Email or password incorrect', login: false});
       }
     } else {
-      res.status(401).send({message: 'Sorry that user name does not exist', login: false});
+      res.status(401).send({message: 'Sorry that email does not exist', login: false});
     }
   });
 });

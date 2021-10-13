@@ -323,8 +323,11 @@ left: 2.1rem;
   color: #e1a70a;
 }
 
+/* Alerts for the registartion page */
 .alert {
   height: 100%;
+  text-align: center;
+
 }
 
 @-webkit-keyframes check {

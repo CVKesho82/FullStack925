@@ -8,19 +8,17 @@
     <title>Registration</title>
     <link href=./stylereg.css " rel="stylesheet" type="text/css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
 </head>
 
 <body>
     <div class="alert alert-danger alert-dismissible fade show" id = "incorrectReg" role="alert" style = "display:none;">
-        <p class = "text-center" id = "test">test fail alert</p>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        Could not register<button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>
     </div>
     <div class="alert alert-success alert-dismissible fade show" id = "correctRegistration" role="alert" style = "display:none;">
-        <p class = "text-center" id = "alertText">Registered!</p>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        Registered!<button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
@@ -35,15 +33,16 @@
             <div class="row clearfix">
                 <!--Registration Form -->
                 <div class="">
-                    <div class="input_box"> <span><i aria-hidden="true" class="glyphicon glyphicon-envelope"></i></span>
+                    <div class="input_box"> 
+                        <span><i aria-hidden="true" class="glyphicon glyphicon-envelope"></i></span>
                         <input type="email" id = "registerEmail" name="email" placeholder="Email" required />
                         <p style = "text-align: center;" id = "emailErr"></p>
                     </div>
-                    <div class="input_box"> <span><i aria-hidden="true" class="glyphicon glyphicon-lock"></i></span>
+                    <div class="input_box"> 
                         <input type="password" minlength="8" id="registerPassword" name="password" placeholder="Password" required />
                         <p style = "text-align: center;" id = "passwordErr"></p>
                     </div>
-                    <div class="input_box"> <span><i aria-hidden="true" class="glyphicon glyphicon-lock"></i></span>
+                    <div class="input_box">
                         <input type="password" minlength="8" id="passwordConfirm" name="passwordConfirm" placeholder="Re-Enter Password" required />
                         <p style = "text-align: center;" id = "passwordErrConfirm"></p>
                     </div>

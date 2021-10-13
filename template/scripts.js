@@ -66,7 +66,7 @@ function checkLogin() {
         console.log(data);
         showAlert(data)
         if (data.login) {
-            window.location.replace('main.html');
+            window.location.replace('forummain.html');
         }
     })
     .catch(function (err) {
@@ -177,9 +177,11 @@ function registerUser() {
         .then (data => {
             console.log(data);
             showAlertReg(data);
+            if (data.registration) {
+                window.location.replace("https://adultingfullstack.herokuapp.com/forummain.html");
+            }
+            // If user was able to succesfully login, then redirect user to forummain.html
         })
-    // IF user already taken, then update message on alert to show correct
-    // If reigstration sucessful, show "Registration scucessful, logging in" alert
         .catch(function (err) {
             console.log('something went wrong, register to database', err); // console.log the errors if any
         });
@@ -190,9 +192,11 @@ function showAlertReg(data) {
     console.log('ShowAlertRegData', data);
     if (data.registration) { // If login is true
         document.getElementById("correctRegistration").style = "display: show";
-    } else {
-        // TODO: Registration alert not showing for some reason
-        // document.getElementById("test").innerHTML = data.message;
+        // Redirect user to the forum main
+        location.href = "https://www.javascripttutorial.net/";
+
+    } else { // If registartion didn't work
+        document.getElementById("incorrectReg").innerHTML = data.message;
         document.getElementById("incorrectReg").style = "display: show";
     }
 }
