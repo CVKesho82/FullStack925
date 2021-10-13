@@ -1,7 +1,11 @@
 body {
   font-family: Verdana, Geneva, sans-serif;
   font-size: 14px;
-  background: #f2f2f2;
+  background: whitesmoke;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background-image: url('./Images/iStock-1166620270ii.jpg');
+  background-size: contain;
 }
 /* clearfix to prevent overflow*/
 .clearfix:after {
