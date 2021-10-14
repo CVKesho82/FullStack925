@@ -52,7 +52,7 @@ function validatelogin() {
 
 // Check Login Function
 function checkLogin() {
-    fetch('http://127.0.0.1:3000/login/verify', {
+    fetch('https://adultingfullstack.herokuapp.com/login/verify', {
         method: "POST",
         headers: {
             'Accept': 'application/json',
@@ -157,11 +157,12 @@ function checkRegistration() {
         registerUser()
     }
 }
+// Force github update
 
 // Regiester a user
 function registerUser() {
     console.log('DEBUG: Hit registration function');
-    fetch('http://127.0.0.1:3000/login/register', {
+    fetch('https://adultingfullstack.herokuapp.com/login/register', {
         method: "POST",
         headers: {
             'Accept': 'application/json',
