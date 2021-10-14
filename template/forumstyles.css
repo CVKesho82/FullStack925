@@ -3,9 +3,7 @@ body {
     flex-direction: column;
     padding: 0px;
     min-height: 100vh;
-    margin-top: auto;
-    background-image: url('./Images/iStock-1166620270ii.jpg');
-   background-size: contain;
+    margin-top: auto; 
   }
 /********************Background Image formatting*******/
   #bimage{
@@ -44,14 +42,6 @@ body {
 
   #btn_c{
     margin: 10px;
-  }
-
-  .banner {
-    padding: 50px;
-    text-align: center;   
-    background: radial-gradient(transparent, rgb(192, 189, 189)),
-      url("https://www.colourbox.com/preview/2423381-a-unique-fractal-background-texture-that-will-enhance-any-design.jpg");
-    background-size: cover;
   }
 
   .authors{
