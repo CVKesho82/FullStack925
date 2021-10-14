@@ -69,7 +69,7 @@ fetch('https://adultingfullstack.herokuapp.com/forumQuestions',{
   headers:{ 'Accept':'application/json','Content-Type': 'application/json'},
   body:JSON.stringify(
     {topic:document.getElementById('topic').value,
-    text:document.getElementById('question').value})
+    question:document.getElementById('question').value})
 })
   .then (res => res.json())
   .then (data => console.log(data))
