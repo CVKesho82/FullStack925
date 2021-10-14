@@ -42,11 +42,13 @@ app.use(logger);
 // Static Files use Template folder
 app.use(express.static('template'))
 
+// Clear issues up with CORS to remove any Access Control Errors
 app.all('*', (req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With");
   res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
-   console.log(`${req.method} ${req.path}`);
+  res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json')
+  console.log(`${req.method} ${req.path}`);
   next();
 });
 
@@ -55,7 +57,7 @@ const helmet = require('helmet');
 app.use(helmet());
 
 // Create router for other pages page
-var login = require('./database/routes/login.js');
+var login = require('./database/routes/loginRegistration.js');
 app.use('/login', login);
 
 // When user first reaches the website, redirect user to the main login page
