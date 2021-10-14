@@ -152,6 +152,7 @@ app.post('/forumQuestions', async(req,res) => {
     topic,
     question
   });
+    res.json(newQuestion);
 })
 
 //------------------------------QUESTION PUT ROUTE (working route to update questions)-----------------------//
@@ -199,6 +200,7 @@ app.post('/Answers', async(req,res) => {
   const newAnswer = await Answers.create({
     answer
   });
+  res.json(newAnswer);
 })
 
 //---------------------------------ANSWER PUT ROUTE (working route to update answers)---------------------------------//
