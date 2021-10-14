@@ -20,8 +20,6 @@ The sky is the limit as far as building out this application, server and databas
     - Logout Functionality
 
 ## KNOWN ISSUES
-    - HEROKU: Hosting issues - hosting full site
-    - ES6 TEMPLATE: Unable to incorporate with the time constraints
     - Pass through Hyperlink Value to the Question Page
 
 ## BUSINESS APPLICATION - ***Who is this web application for?***
@@ -30,7 +28,7 @@ These are many use cases for the application/API, but here are a few
 
     - Developers who are developing real estate websites who want to incorporate frequently asked questions
     - Developers who are developing automotive sales websites who want to incorporate frequently asked questions regarding car buying
-    - Developers who are building websites for home services (i.e. plumbers, electricians, etc.) who want to collect inofmration on what types of servers people        ask about
+    - Developers who are building websites for home services (i.e. plumbers, electricians, etc.) who want to collect inofmration on what types of servers people ask about
 
 ## TECHNOLOGY/STACK USED
     - Node
