@@ -118,13 +118,13 @@
         fetch('https://adultingfullstack.herokuapp.com/forumQuestions')
         .then(response => response.json())
         .then(questionsdata => {
-            console.log("questionsdata",questionsdata);
+//             console.log("questionsdata",questionsdata);
             const questionul = document.createElement("ul");
             questionul.setAttribute("id","questionul");
             questionsdiv.appendChild(document.createElement("table"))  
             questionsdiv.appendChild(questionul);
                 questionsdata.map(question => {
-                console.log("question",question);
+//                 console.log("question",question);
                 // const questionli = document.createElement("a");
                 // questionli.href = question.question;
                 const a = document.createElement('a');
