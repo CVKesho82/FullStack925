@@ -8,9 +8,8 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
-    background-color: whitesmoke;
-  background-image: url('./Images/iStock-1166620270ii.jpg');
-  background-size: contain;
+  background-color: whitesmoke;
+   background-size: contain;
 }
 
 .nav-link:hover {
