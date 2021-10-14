@@ -21,12 +21,12 @@ const sequelize = new Sequelize('sqlite::memory:', {
 
 // Check email and password match user submitted data
 router.post('/verify', async (req, res) => {
-  console.log(req.body); // DEBUG
+  // console.log(req.body); // DEBUG
   const bodyEmail = req.body.email;
   await User.findOne({where: { email: bodyEmail } }).then (foundUser => { // Check email against database
     if (foundUser !== null) { // If user was found in the database
       if (checkPassword(req.body.password, foundUser.hash)) { // If plaintext password hash matches database hash
-        console.log('Database hash matches plaintext password')
+        // console.log('Database hash matches plaintext password')
         res.status(200).send({message : 'Login sucessful!', login: true});
       } else { // 
         res.status(401).send({message: 'Username or password incorrect', login: false});
@@ -38,14 +38,14 @@ router.post('/verify', async (req, res) => {
 });
 
 router.post('/register', async (req, res) => {
-  console.log(req.body.password);
+  // console.log(req.body.password);
   const bodyEmail = req.body.email;
   await User.findOne({where: { email: bodyEmail } }).then (foundUser => { // Check email against database
     if (foundUser !== null) { // If user was found in the database
-      console.log('user already exists');
+      // console.log('user already exists');
       res.status(401).send({message: "Email already has been registered , please try another", registration: false});
     } else {
-      console.log('DEBUG: email not registered');
+      // console.log('DEBUG: email not registered');
       requestHash = hashPassword(req.body.password);
       const newUser = User.create({ // Pass info through postman
           firstName: req.body.firstName, 
@@ -70,13 +70,13 @@ const saltRounds = 10;
 
 function hashPassword(password) {
   const hash = bcrypt.hashSync(password, saltRounds);
-  console.log('Plain text: ', password);
-  console.log('Hash:', hash);
+  // console.log('Plain text: ', password);
+  // console.log('Hash:', hash);
   return hash
 }
 
 function checkPassword(password, hash) {
   const result = bcrypt.compareSync(password, hash) 
-  console.log('Password matches hash', result);
+  // console.log('Password matches hash', result);
   return result
 }

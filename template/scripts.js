@@ -45,7 +45,7 @@ function validatelogin() {
 
     // submit to the server if the form is valid
     if (isFormValid) {
-        console.log('Login input is validated');
+        // console.log('Login input is validated');
         checkLogin() // If login is correct, then run login function
     }
 }
@@ -63,7 +63,7 @@ function checkLogin() {
             password: document.getElementById("passwordID").value})
     }).then (res => res.json())
     .then (data => {
-        console.log(data);
+        // console.log(data);
         showAlert(data)
         if (data.login) {
             window.location.replace('forummain.html');
@@ -113,7 +113,7 @@ function checkRegistration() {
         let valid = false;
         let passwordEl = document.getElementById("registerPassword").value;
         let confirmPasswordEl = document.getElementById("passwordConfirm").value;
-        console.log('passwords', passwordEl, confirmPasswordEl);
+        // console.log('passwords', passwordEl, confirmPasswordEl);
         if (passwordEl === "" || confirmPasswordEl === "") {
             text = 'Password cannot be blank.';
         } else if (passwordEl.length < 4) {
@@ -134,7 +134,7 @@ function checkRegistration() {
         let valid = false;
         let first = document.getElementById("registerFirst").value.trim();
         let last = document.getElementById("registerLast").value.trim();
-        console.log('first, last', first, last);
+        // console.log('first, last', first, last);
         if (first === "" || last === "") {
             text = 'First or Last name cannot be empty'
             document.getElementById("lastNameErr").innerHTML = text;
@@ -153,13 +153,13 @@ function checkRegistration() {
 
     // submit to the server if the form is valid, then try to register user
     if (isFormValid) {
-        console.log('Registration input is validated');
+        // console.log('Registration input is validated');
         registerUser()
     }
 }
 // Regiester a user
 function registerUser() {
-    console.log('DEBUG: Hit registration function');
+    // console.log('DEBUG: Hit registration function');
     fetch('https://adultingfullstack.herokuapp.com/login/register', {
         method: "POST",
         headers: {
@@ -174,7 +174,7 @@ function registerUser() {
             })
         }).then (res => res.json())
         .then (data => {
-            console.log(data);
+            // console.log(data);
             showAlertReg(data);
             if (data.registration) {
                 window.location.replace("https://adultingfullstack.herokuapp.com/forummain.html");
@@ -187,8 +187,8 @@ function registerUser() {
     }
 
 function showAlertReg(data) {
-    console.log('debug: hit show alert function');
-    console.log('ShowAlertRegData', data);
+    // console.log('debug: hit show alert function');
+    // console.log('ShowAlertRegData', data);
     if (data.registration) { // If login is true
         document.getElementById("correctRegistration").style = "display: show";
         // Redirect user to the forum main

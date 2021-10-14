@@ -48,7 +48,7 @@ app.all('*', (req, res, next) => {
   res.header("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With");
   res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
   res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json')
-  console.log(`${req.method} ${req.path}`);
+  // console.log(`${req.method} ${req.path}`);
   next();
 });
 
@@ -109,7 +109,7 @@ app.put('/users/:id', async (req, res) => {
     const userFound = await User.findByPk(id);
     // Check that user exists in the database
     if (userFound === null) {  // If the user doesn't exist
-      console.log('User id not found');
+      // console.log('User id not found');
       res.status(400).json({message: "User id doesn't exist in database"});
     } else {
       // Assemble paramaters from ones that exist in the request
@@ -126,12 +126,12 @@ app.delete('/users/:id', async (req, res) => {
   const oneUser = await User.findByPk(id);
   // If not found return "User id does not exist within database"
   if (oneUser === null) {
-    console.log('User not found');
+    // console.log('User not found');
     res.status(400).json('User not found');
   } else {
   // If found then delete
     const deletedUser = await User.destroy({ where: {id} });
-    console.log('User deleted');
+    // console.log('User deleted');
     res.json(deletedUser);
   }
 });
