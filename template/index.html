@@ -11,7 +11,6 @@
 </head>
 <body>
   <div class="alert alert-danger alert-dismissible fade show" id = "IncorrectLogin" role="alert" style = "display:none;">
-    <p class = "text-center" id = "incorrectText"></p>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -38,19 +37,21 @@
               <div class="form-outline form-white mb-4">
                 <input type="email" id="email" class="form-control form-control-lg" required/>
                 <label class="form-label" for="typeEmail">Email</label>
+                <p id = "loginEmailErr" style = "color: red"><p>
               </div>
 
               <!-- Password with client side password validation - not null-->
               
               <div class="form-outline form-white mb-4">
-                <input type="password" id="typePasswordX" class="form-control form-control-lg" required/>
-                <label class="form-label" for="typePasswordX">Password</label>
+                <input type="password" id="passwordID" class="form-control form-control-lg" required/>
+                <label class="form-label" for="passwordID">Password</label>
+                <p id = "passwordErr" style = "color: red"></p>
               </div>
             <div>
-              <button id="loginbtn" class="btn btn-outline-light btn-lg px-5" type="submit" onclick="checkLogin()">Login</button>
+              <button id="loginbtn" class="btn btn-outline-light btn-lg px-5" type="submit" onclick="validatelogin()">Login</button>
             </div>
               <div>
-                <p class="mb-0">Don't have an account? <a href="Registration.html" class="text-white-50 fw-bold">Register Now</a></p>
+                <p class="mb-0">Don't have an account? <a href="registration.html" class="text-white-50 fw-bold">Register Now</a></p>
               </div>
             </div>
           </div>

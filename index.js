@@ -30,7 +30,7 @@ app.set('view engine', 'html');
 
 // console log server running at a given port, Heroku or local
 app.listen(port, () => { //cvk added hostname to this line. Was previously just referencing port
-  console.log(`Server running at port` + port);
+  console.log(`Server running at port: ` + port);
 });
 
 
@@ -43,7 +43,10 @@ app.use(logger);
 app.use(express.static('template'))
 
 app.all('*', (req, res, next) => {
-  console.log(`${req.method} ${req.path}`);
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With");
+  res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
+   console.log(`${req.method} ${req.path}`);
   next();
 });
 
@@ -55,6 +58,7 @@ app.use(helmet());
 var login = require('./database/routes/login.js');
 app.use('/login', login);
 
+// When user first reaches the website, redirect user to the main login page
 app.get('/', (req, res) => {
   res.sendFile('index.html', {root: './template/index.html'});
 });
