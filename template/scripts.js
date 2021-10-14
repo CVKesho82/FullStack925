@@ -157,8 +157,6 @@ function checkRegistration() {
         registerUser()
     }
 }
-// Force github update
-
 // Regiester a user
 function registerUser() {
     console.log('DEBUG: Hit registration function');
