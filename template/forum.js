@@ -64,7 +64,7 @@ const users = require("pg");
 
 //-------------------------------SUBMIT Question function (working)------------------------------//
 function newQuestion(){
-fetch('http://127.0.0.1:3000/forumQuestions',{
+fetch('https://adultingfullstack.herokuapp.com/forumQuestions',{
   method:"POST",
   headers:{ 'Accept':'application/json','Content-Type': 'application/json'},
   body:JSON.stringify(
@@ -115,7 +115,7 @@ fetch('http://127.0.0.1:3000/forumQuestions',{
 
 
 function submitAnswer(){
-  fetch('http://127.0.0.1:3000/Answers',{
+  fetch('https://adultingfullstack.herokuapp.com/Answers',{
     method:"POST",
     headers:{ 'Accept':'application/json','Content-Type': 'application/json'},
     body:JSON.stringify(
