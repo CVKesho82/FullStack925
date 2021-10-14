@@ -10,7 +10,7 @@ fetch('https://adultingfullstack.herokuapp.com/forumQuestions',{
     question:document.getElementById('question').value})
 })
   .then (res => res.json())
-  .then (data => console.log(data))
+//   .then (data => console.log(data))
   .catch(function (err) {
 //       console.log('wrong', err); // console.log the errors if any
   });
