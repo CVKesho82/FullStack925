@@ -10,7 +10,7 @@ function validatelogin() {
     };
 
     const checkEmail = () => {
-        let text = '';
+        let text = ' ';
         let valid = false;
         if (emailEl === null) {
             text = 'Email cannot be blank';
@@ -19,7 +19,7 @@ function validatelogin() {
         } else {
             valid = true;
         }
-        document.getElementById("emailErr").innerHTML = text;
+        document.getElementById("loginEmailErr").innerHTML = text;
         return valid;
     }
     
